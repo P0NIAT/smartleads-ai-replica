@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +6,14 @@
 
 @layer base {
   :root {
-    /* Beauty Salon Brand Colors */
+    /* New Purple-Pink Beauty Palette */
+    --beauty-purple: #6B46C1;
+    --beauty-lavender: #A78BFA;
+    --beauty-pink: #EC4899;
+    --beauty-cream: #FFF7F2;
+    --beauty-white: #FFFFFF;
+    
+    /* Legacy salon colors */
     --salon-mauve: #4B324C;
     --salon-blush: #F2C1D1;
     --salon-rose-gold: #D4A373;
@@ -55,7 +61,24 @@
 }
 
 @layer utilities {
-  /* Beauty Salon Custom Colors */
+  /* New Beauty Palette Colors */
+  .bg-beauty-purple { background-color: var(--beauty-purple); }
+  .bg-beauty-lavender { background-color: var(--beauty-lavender); }
+  .bg-beauty-pink { background-color: var(--beauty-pink); }
+  .bg-beauty-cream { background-color: var(--beauty-cream); }
+  .bg-beauty-white { background-color: var(--beauty-white); }
+  
+  .text-beauty-purple { color: var(--beauty-purple); }
+  .text-beauty-lavender { color: var(--beauty-lavender); }
+  .text-beauty-pink { color: var(--beauty-pink); }
+  .text-beauty-cream { color: var(--beauty-cream); }
+  .text-beauty-white { color: var(--beauty-white); }
+  
+  .border-beauty-purple { border-color: var(--beauty-purple); }
+  .border-beauty-lavender { border-color: var(--beauty-lavender); }
+  .border-beauty-pink { border-color: var(--beauty-pink); }
+  
+  /* Legacy Beauty Salon Custom Colors */
   .bg-salon-mauve { background-color: var(--salon-mauve); }
   .bg-salon-blush { background-color: var(--salon-blush); }
   .bg-salon-rose-gold { background-color: var(--salon-rose-gold); }
@@ -78,7 +101,7 @@
   
   /* Gradient Text */
   .gradient-text {
-    background: linear-gradient(135deg, var(--salon-rose-gold) 0%, var(--salon-blush) 100%);
+    background: linear-gradient(135deg, var(--beauty-pink) 0%, var(--beauty-purple) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

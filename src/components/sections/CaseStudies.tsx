@@ -23,13 +23,19 @@ const CaseStudies: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-100">
-      <div className="safe-zone">
+    <section className="py-20 relative overflow-hidden">
+      {/* Split background */}
+      <div className="absolute inset-0 flex">
+        <div className="w-1/2 bg-beauty-cream"></div>
+        <div className="w-1/2 bg-gradient-to-br from-beauty-pink to-beauty-purple"></div>
+      </div>
+      
+      <div className="safe-zone relative z-10">
         <div className="text-center mb-16">
-          <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-smart-navy mb-6">
-            Real <span className="text-smart-gold">Results</span> from Real Businesses
+          <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-beauty-purple mb-6">
+            Real <span className="text-beauty-pink">Results</span> from Real Businesses
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-beauty-purple max-w-3xl mx-auto">
             See how beauty businesses like yours are thriving with Smart Leads AI
           </p>
         </div>
@@ -41,31 +47,33 @@ const CaseStudies: React.FC = () => {
               className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
             >
               <div className="mb-6">
-                <div className="bg-smart-light-gray rounded-xl h-48 mb-6 flex items-center justify-center">
-                  <span className="text-gray-400 text-lg">Case Study Image</span>
+                <div className="bg-beauty-cream rounded-xl h-48 mb-6 flex items-center justify-center">
+                  <span className="text-beauty-purple text-lg">Case Study Image</span>
                 </div>
               </div>
               
               <div className="text-center mb-6">
-                <div className="text-6xl font-montserrat font-bold text-smart-gold mb-2">
+                <div className="text-6xl font-montserrat font-bold text-beauty-pink mb-2 relative">
                   {study.metric}
+                  {/* Purple halo effect */}
+                  <div className="absolute inset-0 text-beauty-purple opacity-20 blur-sm">{study.metric}</div>
                 </div>
-                <div className="text-xl font-semibold text-smart-navy mb-1">
+                <div className="text-xl font-semibold text-beauty-purple mb-1">
                   {study.description}
                 </div>
               </div>
 
-              <h3 className="font-montserrat font-bold text-2xl text-smart-navy mb-2">
+              <h3 className="font-montserrat font-bold text-2xl text-beauty-purple mb-2">
                 {study.business}
               </h3>
-              <p className="text-smart-cyan font-medium mb-4">{study.location}</p>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-beauty-pink font-medium mb-4">{study.location}</p>
+              <p className="text-beauty-purple leading-relaxed mb-6">
                 {study.details}
               </p>
 
               <Button
                 variant="ghost"
-                className="text-smart-cyan hover:text-smart-gold font-semibold p-0 h-auto group-hover:transform group-hover:scale-105 transition-all duration-300"
+                className="text-beauty-pink hover:text-beauty-purple font-semibold p-0 h-auto group-hover:transform group-hover:scale-105 transition-all duration-300"
               >
                 Read Case Study →
               </Button>

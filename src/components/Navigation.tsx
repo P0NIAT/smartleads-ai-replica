@@ -36,7 +36,7 @@ const Navigation: React.FC = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-salon-mauve/95 backdrop-blur-md shadow-lg' 
+        ? 'bg-beauty-purple/95 backdrop-blur-md shadow-lg' 
         : 'bg-transparent'
     }`}>
       <div className="safe-zone">
@@ -51,7 +51,7 @@ const Navigation: React.FC = () => {
           <div className="flex items-center gap-4">
             <Button
               onClick={() => scrollToSection('demo')}
-              className="bg-salon-blush hover:bg-salon-rose-gold text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
+              className="bg-beauty-pink hover:bg-beauty-purple text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
             >
               Watch Demo
             </Button>
@@ -59,7 +59,7 @@ const Navigation: React.FC = () => {
             <Button
               variant="outline"
               onClick={() => scrollToSection('contact')}
-              className="border-salon-rose-gold text-salon-rose-gold hover:bg-salon-rose-gold hover:text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
+              className="border-beauty-pink text-beauty-pink hover:bg-beauty-pink hover:text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
             >
               Contact Us
             </Button>

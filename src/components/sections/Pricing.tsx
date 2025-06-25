@@ -19,7 +19,8 @@ const Pricing: React.FC = () => {
         "Analytics dashboard",
         "Cancel anytime"
       ],
-      popular: false
+      popular: false,
+      bgColor: "bg-salon-blush/20"
     },
     {
       name: "Growing Business", 
@@ -36,7 +37,8 @@ const Pricing: React.FC = () => {
         "Priority training",
         "Cancel anytime"
       ],
-      popular: true
+      popular: true,
+      bgColor: "bg-beauty-pink"
     },
     {
       name: "Enterprise",
@@ -53,7 +55,8 @@ const Pricing: React.FC = () => {
         "White-label options",
         "Cancel anytime"
       ],
-      popular: false
+      popular: false,
+      bgColor: "bg-beauty-lavender/30"
     }
   ];
 
@@ -65,13 +68,13 @@ const Pricing: React.FC = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 bg-smart-white">
+    <section id="pricing" className="py-20 bg-beauty-cream">
       <div className="safe-zone">
         <div className="text-center mb-16">
-          <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-smart-navy mb-6">
-            Simple Pricing for <span className="text-smart-gold">Beauty</span> Results
+          <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-beauty-purple mb-6">
+            Simple Pricing for <span className="text-beauty-pink">Beauty</span> Results
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-beauty-purple max-w-3xl mx-auto">
             Choose the perfect plan for your beauty business. All plans include our signature personal writing style adaptation.
           </p>
         </div>
@@ -80,15 +83,15 @@ const Pricing: React.FC = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative rounded-2xl p-8 transition-all duration-300 hover:transform hover:scale-105 ${
+              className={`relative rounded-2xl p-8 transition-all duration-300 hover:transform hover:scale-105 ${plan.bgColor} ${
                 plan.popular
-                  ? 'bg-gradient-to-br from-smart-navy to-smart-cyan text-white shadow-2xl'
-                  : 'bg-white border-2 border-gray-200 hover:border-smart-cyan'
+                  ? 'text-white shadow-2xl'
+                  : 'text-beauty-purple border-2 border-beauty-lavender/20'
               }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-smart-gold text-smart-navy px-6 py-2 rounded-full font-montserrat font-bold text-sm">
+                  <span className="bg-beauty-lavender text-white px-6 py-2 rounded-full font-montserrat font-bold text-sm">
                     MOST POPULAR
                   </span>
                 </div>
@@ -96,23 +99,23 @@ const Pricing: React.FC = () => {
 
               <div className="text-center mb-8">
                 <h3 className={`font-montserrat font-bold text-2xl mb-2 ${
-                  plan.popular ? 'text-white' : 'text-smart-navy'
+                  plan.popular ? 'text-white' : 'text-beauty-purple'
                 }`}>
                   {plan.name}
                 </h3>
                 <p className={`mb-6 ${
-                  plan.popular ? 'text-gray-200' : 'text-gray-600'
+                  plan.popular ? 'text-beauty-lavender' : 'text-beauty-purple'
                 }`}>
                   {plan.description}
                 </p>
                 <div className="mb-2">
                   <span className={`text-5xl font-montserrat font-bold ${
-                    plan.popular ? 'text-white' : 'text-smart-navy'
+                    plan.popular ? 'text-white' : 'text-beauty-purple'
                   }`}>
                     {plan.price}
                   </span>
                   <span className={`text-lg ${
-                    plan.popular ? 'text-gray-200' : 'text-gray-500'
+                    plan.popular ? 'text-beauty-lavender' : 'text-beauty-purple'
                   }`}>
                     {plan.period}
                   </span>
@@ -123,11 +126,11 @@ const Pricing: React.FC = () => {
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
                     <span className={`text-xl ${
-                      plan.popular ? 'text-smart-gold' : 'text-smart-cyan'
+                      plan.popular ? 'text-beauty-lavender' : 'text-beauty-pink'
                     }`}>
                       ✓
                     </span>
-                    <span className={plan.popular ? 'text-gray-200' : 'text-gray-600'}>
+                    <span className={plan.popular ? 'text-beauty-lavender' : 'text-beauty-purple'}>
                       {feature}
                     </span>
                   </li>
@@ -138,8 +141,8 @@ const Pricing: React.FC = () => {
                 onClick={() => scrollToSection('contact')}
                 className={`w-full py-4 font-montserrat font-bold text-lg transition-all duration-300 ${
                   plan.popular
-                    ? 'bg-smart-gold hover:bg-smart-cyan text-smart-navy hover:text-white'
-                    : 'bg-smart-gold hover:bg-smart-cyan text-smart-navy hover:text-white'
+                    ? 'bg-beauty-lavender hover:bg-beauty-purple text-white'
+                    : 'bg-beauty-pink hover:bg-beauty-purple text-white'
                 }`}
               >
                 Choose Your Plan
@@ -148,7 +151,7 @@ const Pricing: React.FC = () => {
           ))}
         </div>
 
-        <p className="text-center text-gray-500 mt-8">
+        <p className="text-center text-beauty-purple mt-8">
           * + setup fee
         </p>
       </div>

@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,7 +23,14 @@ export default {
 				'opensans': ['Open Sans', 'sans-serif'],
 			},
 			colors: {
-				// Beauty Salon Brand Colors
+				// New Purple-Pink Beauty Palette
+				'beauty-purple': '#6B46C1',
+				'beauty-lavender': '#A78BFA',
+				'beauty-pink': '#EC4899',
+				'beauty-cream': '#FFF7F2',
+				'beauty-white': '#FFFFFF',
+				
+				// Legacy salon colors (keeping for compatibility)
 				'salon-mauve': '#4B324C',
 				'salon-blush': '#F2C1D1',
 				'salon-rose-gold': '#D4A373',
