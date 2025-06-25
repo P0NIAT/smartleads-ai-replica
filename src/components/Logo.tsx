@@ -16,15 +16,23 @@ const Logo: React.FC<LogoProps> = ({ className = "", showText = true, size = 'md
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <div className={`${sizeClasses[size]} rounded-full bg-gradient-to-br from-salon-rose-gold to-salon-blush flex items-center justify-center`}>
+      <div className={`${sizeClasses[size]} rounded-full bg-gradient-to-br from-salon-rose-gold to-salon-blush flex items-center justify-center relative`}>
+        {/* Main star */}
         <svg viewBox="0 0 40 40" className="w-6 h-6 text-white">
-          <path fill="currentColor" d="M20 2L30 12v16L20 38 10 28V12L20 2zm0 4l-6 6v12l6 10 6-10V12l-6-6z"/>
-          <circle cx="20" cy="20" r="6" fill="currentColor"/>
+          <path 
+            fill="currentColor" 
+            d="M20 2l4.5 13.8h14.5l-11.7 8.5 4.5 13.8L20 29.6l-11.8 8.5 4.5-13.8L1 15.8h14.5L20 2z"
+          />
         </svg>
+        
+        {/* Sparkling effects */}
+        <div className="absolute -top-1 -right-1 w-2 h-2 bg-white rounded-full opacity-80 animate-pulse"></div>
+        <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-salon-blush rounded-full opacity-60 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-1 left-1 w-1 h-1 bg-salon-rose-gold rounded-full opacity-70 animate-pulse" style={{animationDelay: '1s'}}></div>
       </div>
       {showText && (
         <span className="font-montserrat font-bold text-xl gradient-text">
-          Luxe Beauty Salon
+          Smart Leads AI
         </span>
       )}
     </div>

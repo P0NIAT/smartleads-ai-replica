@@ -19,24 +19,25 @@ const Hero: React.FC = () => {
           <div className="text-center mb-12">
             <h1 className="font-montserrat font-bold text-white mb-6 leading-tight">
               <span className="block text-3xl md:text-5xl lg:text-6xl">
-                <span className="md:hidden">Luxe Beauty Salon</span>
-                <span className="hidden md:block">Luxe <span className="text-salon-blush">Beauty</span> Salon</span>
+                <span className="md:hidden">Smart Leads AI</span>
+                <span className="hidden md:block">Smart <span className="text-salon-blush">Leads</span> AI</span>
               </span>
               <span className="block text-2xl md:text-4xl lg:text-5xl mt-2 text-salon-rose-gold">
-                Your Beauty, Redefined
+                AI Agents for Beauty Businesses
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
-              Experience personalized beauty treatments that enhance your natural radiance and leave you feeling transformed
+              Automate your customer conversations with AI agents that sound exactly like you. 
+              Perfect for hair salons, nail bars, spas, and aesthetic clinics.
             </p>
           </div>
 
           {/* Video Container */}
           <div className="mb-12">
             <VideoPlayer
-              src="/salon-intro.mp4"
-              poster="/salon-hero.jpg"
+              src="/ai-demo.mp4"
+              poster="/beauty-hero.jpg"
               className="mx-auto"
             />
           </div>
@@ -44,8 +45,8 @@ const Hero: React.FC = () => {
           {/* Subtext and CTAs */}
           <div className="text-center">
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              From luxurious facials to precision cuts, manicures to massage therapy. 
-              Book your appointment today and discover your most beautiful self.
+              24/7 automated booking, customer support, and lead qualification. 
+              Your AI agent learns your voice and handles conversations just like you would.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -54,7 +55,7 @@ const Hero: React.FC = () => {
                 size="lg"
                 className="bg-salon-blush hover:bg-salon-rose-gold text-white font-montserrat font-bold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105"
               >
-                Book a Free Consult
+                Watch Live Demo
               </Button>
               
               <Button
@@ -63,7 +64,7 @@ const Hero: React.FC = () => {
                 size="lg"
                 className="border-2 border-salon-rose-gold text-salon-rose-gold hover:bg-salon-rose-gold hover:text-white font-montserrat font-bold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105"
               >
-                Learn More
+                View Pricing
               </Button>
             </div>
           </div>

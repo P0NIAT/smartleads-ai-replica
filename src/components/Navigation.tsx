@@ -53,7 +53,7 @@ const Navigation: React.FC = () => {
               onClick={() => scrollToSection('demo')}
               className="bg-salon-blush hover:bg-salon-rose-gold text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
             >
-              Book Now
+              Watch Demo
             </Button>
             
             <Button
@@ -61,7 +61,7 @@ const Navigation: React.FC = () => {
               onClick={() => scrollToSection('contact')}
               className="border-salon-rose-gold text-salon-rose-gold hover:bg-salon-rose-gold hover:text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
             >
-              Contact
+              Contact Us
             </Button>
           </div>
         </div>

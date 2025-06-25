@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer id="contact" className="bg-smart-navy text-white py-16">
+    <footer id="contact" className="bg-salon-mauve text-white py-16">
       <div className="safe-zone">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Logo and Description */}
@@ -43,8 +43,8 @@ const Footer: React.FC = () => {
               AI agents that sound exactly like you, helping beauty businesses convert more visitors into bookings 24/7.
             </p>
             <Button
-              className="bg-smart-gold hover:bg-smart-cyan text-smart-navy hover:text-white font-montserrat font-semibold transition-all duration-300"
-              onClick={() => window.location.href = 'mailto:info@smartleadsai.io'}
+              className="bg-salon-rose-gold hover:bg-salon-blush text-white font-montserrat font-semibold transition-all duration-300"
+              onClick={() => window.location.href = 'mailto:info@smartleadsai.com'}
             >
               Email Us
             </Button>
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
           {/* Links */}
           {Object.entries(links).map(([category, items]) => (
             <div key={category}>
-              <h4 className="font-montserrat font-bold text-lg mb-6">
+              <h4 className="font-montserrat font-bold text-lg mb-6 text-salon-blush">
                 {category}
               </h4>
               <ul className="space-y-3">
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
                   <li key={item}>
                     <a 
                       href="#" 
-                      className="text-gray-300 hover:text-smart-cyan transition-colors duration-300"
+                      className="text-gray-300 hover:text-salon-rose-gold transition-colors duration-300"
                     >
                       {item}
                     </a>
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
             <a
               key={social.name}
               href={social.href}
-              className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-xl hover:bg-smart-cyan hover:transform hover:scale-110 transition-all duration-300"
+              className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-xl hover:bg-salon-blush hover:transform hover:scale-110 transition-all duration-300"
             >
               {social.icon}
             </a>
