@@ -45,7 +45,7 @@ const Benefits: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-smart-white">
+    <section className="py-20 bg-gradient-to-br from-beauty-purple to-beauty-pink">
       <div className="safe-zone">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
@@ -53,13 +53,13 @@ const Benefits: React.FC = () => {
               key={index}
               className="text-center group hover:transform hover:scale-105 transition-all duration-300"
             >
-              <div className="text-smart-cyan group-hover:text-smart-gold transition-colors duration-300 mb-4 flex justify-center">
+              <div className="text-beauty-lavender group-hover:text-white transition-colors duration-300 mb-4 flex justify-center">
                 {benefit.icon}
               </div>
-              <h3 className="font-montserrat font-bold text-xl text-smart-navy mb-3">
+              <h3 className="font-montserrat font-bold text-xl text-white mb-3">
                 {benefit.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-200 leading-relaxed">
                 {benefit.description}
               </p>
             </div>

@@ -51,7 +51,7 @@ const Navigation: React.FC = () => {
           <div className="flex items-center gap-4">
             <Button
               onClick={() => scrollToSection('demo')}
-              className="bg-beauty-pink hover:bg-beauty-purple text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
+              className="bg-beauty-pink hover:bg-beauty-lavender text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
             >
               Watch Demo
             </Button>
@@ -59,7 +59,7 @@ const Navigation: React.FC = () => {
             <Button
               variant="outline"
               onClick={() => scrollToSection('contact')}
-              className="border-beauty-pink text-beauty-pink hover:bg-beauty-pink hover:text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
+              className="border-beauty-lavender text-beauty-lavender hover:bg-beauty-lavender hover:text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
             >
               Contact Us
             </Button>

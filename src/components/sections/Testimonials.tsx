@@ -40,13 +40,13 @@ const Testimonials: React.FC = () => {
   }, [testimonials.length]);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-smart-navy via-smart-navy to-smart-cyan">
+    <section className="py-20 bg-gradient-to-br from-beauty-purple to-beauty-pink">
       <div className="safe-zone">
         <div className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-white mb-6">
-            What Our <span className="text-smart-gold">Clients</span> Say
+            What Our <span className="text-beauty-lavender">Clients</span> Say
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
             Join hundreds of beauty businesses already growing with Smart Leads AI
           </p>
         </div>
@@ -63,7 +63,7 @@ const Testimonials: React.FC = () => {
                   className="w-full flex-shrink-0 bg-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12"
                 >
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-gradient-to-br from-smart-cyan to-smart-gold rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-gradient-to-br from-beauty-lavender to-beauty-pink rounded-full mx-auto mb-6 flex items-center justify-center">
                       <span className="text-2xl font-montserrat font-bold text-white">
                         {testimonial.name.split(' ').map(n => n[0]).join('')}
                       </span>
@@ -71,7 +71,7 @@ const Testimonials: React.FC = () => {
                     
                     <div className="flex justify-center mb-6">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <span key={i} className="text-smart-gold text-2xl">★</span>
+                        <span key={i} className="text-beauty-lavender text-2xl">★</span>
                       ))}
                     </div>
 
@@ -80,10 +80,10 @@ const Testimonials: React.FC = () => {
                     </blockquote>
 
                     <div>
-                      <div className="font-montserrat font-bold text-lg text-smart-gold">
+                      <div className="font-montserrat font-bold text-lg text-beauty-lavender">
                         {testimonial.name}
                       </div>
-                      <div className="text-gray-300">
+                      <div className="text-gray-200">
                         {testimonial.business}, {testimonial.location}
                       </div>
                     </div>
@@ -100,7 +100,7 @@ const Testimonials: React.FC = () => {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                  index === currentSlide ? 'bg-smart-gold' : 'bg-white/30'
+                  index === currentSlide ? 'bg-beauty-lavender' : 'bg-white/30'
                 }`}
               />
             ))}
