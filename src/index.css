@@ -1,94 +1,40 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* Smart Leads AI Design System */
 
 @layer base {
   :root {
+    /* Smart Leads AI Brand Colors */
+    --smart-navy: #0A2540;
+    --smart-cyan: #00ADEF;
+    --smart-gold: #F5D547;
+    --smart-light-gray: #F7F9FC;
+    --smart-white: #FFFFFF;
+    
+    /* shadcn variables */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -98,6 +44,183 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-opensans;
+    font-family: 'Open Sans', sans-serif;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  /* Smart Leads AI Custom Colors */
+  .bg-smart-navy { background-color: var(--smart-navy); }
+  .bg-smart-cyan { background-color: var(--smart-cyan); }
+  .bg-smart-gold { background-color: var(--smart-gold); }
+  .bg-smart-light-gray { background-color: var(--smart-light-gray); }
+  .bg-smart-white { background-color: var(--smart-white); }
+  
+  .text-smart-navy { color: var(--smart-navy); }
+  .text-smart-cyan { color: var(--smart-cyan); }
+  .text-smart-gold { color: var(--smart-gold); }
+  .text-smart-light-gray { color: var(--smart-light-gray); }
+  .text-smart-white { color: var(--smart-white); }
+  
+  .border-smart-navy { border-color: var(--smart-navy); }
+  .border-smart-cyan { border-color: var(--smart-cyan); }
+  .border-smart-gold { border-color: var(--smart-gold); }
+  
+  /* Typography */
+  .font-montserrat { font-family: 'Montserrat', sans-serif; }
+  .font-opensans { font-family: 'Open Sans', sans-serif; }
+  
+  /* Gradient Text */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--smart-navy) 0%, var(--smart-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Custom Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  /* Safe Zone Layout */
+  .safe-zone {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 768px) {
+    .safe-zone {
+      width: 80%;
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(245, 213, 71, 0.5);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(245, 213, 71, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fade-in-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Video Container Styles */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(10, 37, 64, 0.7) 0%, rgba(0, 173, 239, 0.7) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.play-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 3px solid var(--smart-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-button:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.play-button::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 20px solid white;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  margin-left: 4px;
+}
+
+/* Floating Elements */
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: float 8s ease-in-out infinite;
+}
+
+.floating-circle:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--smart-cyan), var(--smart-gold));
+  animation-delay: -2s;
+}
+
+.floating-circle:nth-child(2) {
+  top: 20%;
+  right: 15%;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--smart-gold), var(--smart-cyan));
+  animation-delay: -4s;
+}
+
+.floating-circle:nth-child(3) {
+  bottom: 30%;
+  left: 20%;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, var(--smart-navy), var(--smart-cyan));
+  animation-delay: -6s;
 }
