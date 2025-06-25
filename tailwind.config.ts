@@ -24,12 +24,12 @@ export default {
 				'opensans': ['Open Sans', 'sans-serif'],
 			},
 			colors: {
-				// Smart Leads AI Brand Colors
-				'smart-navy': '#0A2540',
-				'smart-cyan': '#00ADEF',
-				'smart-gold': '#F5D547',
-				'smart-light-gray': '#F7F9FC',
-				'smart-white': '#FFFFFF',
+				// Beauty Salon Brand Colors
+				'salon-mauve': '#4B324C',
+				'salon-blush': '#F2C1D1',
+				'salon-rose-gold': '#D4A373',
+				'salon-cream': '#FFF7F2',
+				'salon-white': '#FFFFFF',
 				
 				// shadcn colors
 				border: 'hsl(var(--border))',

@@ -16,7 +16,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", showText = true, size = 'md
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <div className={`${sizeClasses[size]} rounded-full bg-gradient-to-br from-smart-navy to-smart-cyan flex items-center justify-center`}>
+      <div className={`${sizeClasses[size]} rounded-full bg-gradient-to-br from-salon-rose-gold to-salon-blush flex items-center justify-center`}>
         <svg viewBox="0 0 40 40" className="w-6 h-6 text-white">
           <path fill="currentColor" d="M20 2L30 12v16L20 38 10 28V12L20 2zm0 4l-6 6v12l6 10 6-10V12l-6-6z"/>
           <circle cx="20" cy="20" r="6" fill="currentColor"/>
@@ -24,7 +24,7 @@ const Logo: React.FC<LogoProps> = ({ className = "", showText = true, size = 'md
       </div>
       {showText && (
         <span className="font-montserrat font-bold text-xl gradient-text">
-          Smart Leads AI
+          Luxe Beauty Salon
         </span>
       )}
     </div>

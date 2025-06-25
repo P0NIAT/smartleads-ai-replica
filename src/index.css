@@ -3,16 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Smart Leads AI Design System */
+/* Beauty Salon Design System */
 
 @layer base {
   :root {
-    /* Smart Leads AI Brand Colors */
-    --smart-navy: #0A2540;
-    --smart-cyan: #00ADEF;
-    --smart-gold: #F5D547;
-    --smart-light-gray: #F7F9FC;
-    --smart-white: #FFFFFF;
+    /* Beauty Salon Brand Colors */
+    --salon-mauve: #4B324C;
+    --salon-blush: #F2C1D1;
+    --salon-rose-gold: #D4A373;
+    --salon-cream: #FFF7F2;
+    --salon-white: #FFFFFF;
     
     /* shadcn variables */
     --background: 0 0% 100%;
@@ -55,22 +55,22 @@
 }
 
 @layer utilities {
-  /* Smart Leads AI Custom Colors */
-  .bg-smart-navy { background-color: var(--smart-navy); }
-  .bg-smart-cyan { background-color: var(--smart-cyan); }
-  .bg-smart-gold { background-color: var(--smart-gold); }
-  .bg-smart-light-gray { background-color: var(--smart-light-gray); }
-  .bg-smart-white { background-color: var(--smart-white); }
+  /* Beauty Salon Custom Colors */
+  .bg-salon-mauve { background-color: var(--salon-mauve); }
+  .bg-salon-blush { background-color: var(--salon-blush); }
+  .bg-salon-rose-gold { background-color: var(--salon-rose-gold); }
+  .bg-salon-cream { background-color: var(--salon-cream); }
+  .bg-salon-white { background-color: var(--salon-white); }
   
-  .text-smart-navy { color: var(--smart-navy); }
-  .text-smart-cyan { color: var(--smart-cyan); }
-  .text-smart-gold { color: var(--smart-gold); }
-  .text-smart-light-gray { color: var(--smart-light-gray); }
-  .text-smart-white { color: var(--smart-white); }
+  .text-salon-mauve { color: var(--salon-mauve); }
+  .text-salon-blush { color: var(--salon-blush); }
+  .text-salon-rose-gold { color: var(--salon-rose-gold); }
+  .text-salon-cream { color: var(--salon-cream); }
+  .text-salon-white { color: var(--salon-white); }
   
-  .border-smart-navy { border-color: var(--smart-navy); }
-  .border-smart-cyan { border-color: var(--smart-cyan); }
-  .border-smart-gold { border-color: var(--smart-gold); }
+  .border-salon-mauve { border-color: var(--salon-mauve); }
+  .border-salon-blush { border-color: var(--salon-blush); }
+  .border-salon-rose-gold { border-color: var(--salon-rose-gold); }
   
   /* Typography */
   .font-montserrat { font-family: 'Montserrat', sans-serif; }
@@ -78,7 +78,7 @@
   
   /* Gradient Text */
   .gradient-text {
-    background: linear-gradient(135deg, var(--smart-navy) 0%, var(--smart-cyan) 100%);
+    background: linear-gradient(135deg, var(--salon-rose-gold) 0%, var(--salon-blush) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -120,11 +120,11 @@
 
 @keyframes pulse-glow {
   0%, 100% { 
-    box-shadow: 0 0 20px rgba(245, 213, 71, 0.5);
+    box-shadow: 0 0 20px rgba(212, 163, 115, 0.5);
     transform: scale(1);
   }
   50% { 
-    box-shadow: 0 0 40px rgba(245, 213, 71, 0.8);
+    box-shadow: 0 0 40px rgba(212, 163, 115, 0.8);
     transform: scale(1.05);
   }
 }
@@ -154,7 +154,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(10, 37, 64, 0.7) 0%, rgba(0, 173, 239, 0.7) 100%);
+  background: linear-gradient(135deg, rgba(75, 50, 76, 0.7) 0%, rgba(242, 193, 209, 0.7) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,7 +167,7 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
-  border: 3px solid var(--smart-gold);
+  border: 3px solid var(--salon-rose-gold);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,7 +203,7 @@
   left: 10%;
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, var(--smart-cyan), var(--smart-gold));
+  background: linear-gradient(135deg, var(--salon-blush), var(--salon-rose-gold));
   animation-delay: -2s;
 }
 
@@ -212,7 +212,7 @@
   right: 15%;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, var(--smart-gold), var(--smart-cyan));
+  background: linear-gradient(135deg, var(--salon-rose-gold), var(--salon-blush));
   animation-delay: -4s;
 }
 
@@ -221,6 +221,6 @@
   left: 20%;
   width: 30px;
   height: 30px;
-  background: linear-gradient(135deg, var(--smart-navy), var(--smart-cyan));
+  background: linear-gradient(135deg, var(--salon-mauve), var(--salon-blush));
   animation-delay: -6s;
 }

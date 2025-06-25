@@ -36,32 +36,32 @@ const Navigation: React.FC = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-smart-navy/95 backdrop-blur-md shadow-lg' 
+        ? 'bg-salon-mauve/95 backdrop-blur-md shadow-lg' 
         : 'bg-transparent'
     }`}>
       <div className="safe-zone">
         <div className="flex items-center justify-between py-4">
-          <Logo 
-            showText={!isMobile} 
-            size={isMobile ? 'sm' : 'md'} 
-            className="cursor-pointer"
-            onClick={() => scrollToSection('hero')}
-          />
+          <div className="cursor-pointer" onClick={() => scrollToSection('hero')}>
+            <Logo 
+              showText={!isMobile} 
+              size={isMobile ? 'sm' : 'md'} 
+            />
+          </div>
           
           <div className="flex items-center gap-4">
             <Button
               onClick={() => scrollToSection('demo')}
-              className="bg-smart-cyan hover:bg-smart-gold text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
+              className="bg-salon-blush hover:bg-salon-rose-gold text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
             >
-              Watch Demo
+              Book Now
             </Button>
             
             <Button
               variant="outline"
               onClick={() => scrollToSection('contact')}
-              className="border-smart-gold text-smart-gold hover:bg-smart-gold hover:text-smart-navy font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
+              className="border-salon-rose-gold text-salon-rose-gold hover:bg-salon-rose-gold hover:text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105"
             >
-              Contact Us
+              Contact
             </Button>
           </div>
         </div>
