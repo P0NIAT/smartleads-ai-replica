@@ -45,21 +45,30 @@ const Benefits: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-beauty-purple to-beauty-pink">
+    <section className="py-20 bg-beauty-cream">
       <div className="safe-zone">
+        <div className="text-center mb-16">
+          <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-beauty-purple mb-6">
+            Everything Your <span className="text-beauty-pink">Beauty Business</span> Needs
+          </h2>
+          <p className="text-xl text-beauty-purple max-w-3xl mx-auto">
+            Designed specifically for salon owners who want to focus on what they love most—making clients beautiful
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="text-center group hover:transform hover:scale-105 transition-all duration-300"
+              className="text-center group hover:transform hover:scale-105 transition-all duration-300 bg-white rounded-2xl p-8 shadow-lg"
             >
-              <div className="text-beauty-lavender group-hover:text-white transition-colors duration-300 mb-4 flex justify-center">
+              <div className="w-16 h-16 bg-beauty-pink rounded-full flex items-center justify-center mx-auto mb-4 text-white group-hover:bg-beauty-purple transition-colors duration-300">
                 {benefit.icon}
               </div>
-              <h3 className="font-montserrat font-bold text-xl text-white mb-3">
+              <h3 className="font-montserrat font-bold text-xl text-beauty-purple mb-3">
                 {benefit.title}
               </h3>
-              <p className="text-gray-200 leading-relaxed">
+              <p className="text-beauty-purple leading-relaxed">
                 {benefit.description}
               </p>
             </div>
