@@ -17,10 +17,10 @@ const Hero: React.FC = () => {
           <div className="text-center mb-12">
             <h1 className="font-montserrat font-bold text-white mb-6 leading-tight">
               <span className="block text-3xl md:text-5xl lg:text-6xl">
-                <span className="md:hidden">AI That Speaks </span>
+                <span className="md:hidden font-bold text-5xl">AI That Speaks </span>
                 <span className="hidden md:block">Smart <span className="text-beauty-lavender">Leads</span> AI</span>
               </span>
-              <span className="block md:text-4xl lg:text-5xl mt-2 text-beauty-lavender text-4xl text-rose-500">Your Beauty Language</span>
+              <span className="block md:text-4xl lg:text-5xl mt-2 text-beauty-lavender text-3xl text-rose-400">Your Beauty Language</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">Automate your customer conversations with AI agents that sound exactly like you. </p>
