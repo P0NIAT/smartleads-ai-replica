@@ -25,7 +25,7 @@ const Logo: React.FC<LogoProps> = ({
           <path d="M5 18H3" />
         </svg>
       </div>
-      {showText && <span className="font-montserrat font-bold text-xl gradient-text text-red-100">
+      {showText && <span className="font-montserrat gradient-text text-white font-bold mx-0 text-left text-xl">
           Smart Leads AI
         </span>}
     </div>;
