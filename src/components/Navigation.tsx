@@ -1,24 +1,31 @@
+
 import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
 import { Button } from '@/components/ui/button';
+
 const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 500);
     };
+
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
     handleResize();
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -27,7 +34,9 @@ const Navigation: React.FC = () => {
       });
     }
   };
-  return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-beauty-purple/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
+
+  return (
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-beauty-purple/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
       <div className="safe-zone">
         <div className="flex items-center justify-between py-4">
           <div className="cursor-pointer" onClick={() => scrollToSection('hero')}>
@@ -45,6 +54,8 @@ const Navigation: React.FC = () => {
           </div>
         </div>
       </div>
-    </nav>;
+    </nav>
+  );
 };
+
 export default Navigation;
