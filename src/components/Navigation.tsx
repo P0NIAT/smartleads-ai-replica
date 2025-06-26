@@ -35,7 +35,7 @@ const Navigation: React.FC = () => {
           </div>
           
           <div className="flex items-center gap-4">
-            <Button onClick={() => scrollToSection('demo')} className="bg-beauty-pink hover:bg-beauty-lavender text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105 bg-rose-600 hover:bg-rose-500">
+            <Button onClick={() => scrollToSection('demo')} className="bg-beauty-pink hover:bg-beauty-lavender text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105 bg-rose-500 hover:bg-rose-400">
               Watch Demo
             </Button>
             
