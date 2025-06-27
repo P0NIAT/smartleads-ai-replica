@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import VideoPlayer from '../VideoPlayer';
+
 const Hero: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -10,7 +12,9 @@ const Hero: React.FC = () => {
       });
     }
   };
-  return <section id="hero" className="min-h-screen bg-gradient-to-br from-beauty-purple to-beauty-pink relative overflow-hidden">
+
+  return (
+    <section id="hero" className="min-h-screen bg-gradient-to-br from-beauty-purple to-beauty-pink relative overflow-hidden">
       <div className="safe-zone relative z-10">
         <div className="pt-32 pb-20">
           {/* Hero Content */}
@@ -20,10 +24,15 @@ const Hero: React.FC = () => {
                 <span className="md:hidden font-bold text-5xl">AI That Speaks </span>
                 <span className="hidden md:block">Smart <span className="text-beauty-lavender">Leads</span> AI</span>
               </span>
-              <span className="block md:text-4xl mt-2 text-beauty-lavender text-3xl text-rose-500 lg:text-5xl">Your Beauty Language</span>
+              <span className="block md:text-4xl mt-2 text-3xl lg:text-5xl">
+                <span className="text-rose-500">AI</span> Agent That Speaks <span className="text-rose-500">Your Beauty Language</span>
+              </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">Automate your customer conversations with AI agents that sound exactly like you. </p>
+            <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+              Get More Bookings with Smart Leads AI<br />
+              AI agents that chat just like you
+            </p>
           </div>
 
           {/* Video Container */}
@@ -61,6 +70,8 @@ const Hero: React.FC = () => {
         animationDelay: '-4s'
       }}></div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
