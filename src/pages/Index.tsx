@@ -10,6 +10,7 @@ import Integration from '../components/sections/Integration';
 import Testimonials from '../components/sections/Testimonials';
 import Pricing from '../components/sections/Pricing';
 import Footer from '../components/sections/Footer';
+import ChatWidget from '../components/ChatWidget';
 
 const Index = () => {
   useEffect(() => {
@@ -64,6 +65,7 @@ const Index = () => {
       <Testimonials />
       <Pricing />
       <Footer />
+      <ChatWidget />
     </div>
   );
 };
