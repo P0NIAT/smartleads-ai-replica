@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import VideoPlayer from '../VideoPlayer';
@@ -20,12 +21,11 @@ const Hero: React.FC = () => {
           {/* Hero Content */}
           <div className="text-center mb-12">
             <h1 className="font-montserrat font-bold text-white mb-6 leading-tight">
-              <span className="block text-3xl md:text-5xl lg:text-6xl">
-                <span className="md:hidden font-bold text-5xl">AI That Speaks </span>
-                <span className="hidden md:block">Smart <span className="text-beauty-lavender">Leads</span> AI</span>
+              <span className="block text-4xl md:text-6xl lg:text-7xl">
+                <span className="text-rose-500">AI</span> That Speaks
               </span>
-              <span className="block md:text-4xl mt-2 text-3xl lg:text-5xl">
-                <span className="text-rose-500">AI</span> Agent That Speaks <span className="text-rose-500">Your Beauty Language</span>
+              <span className="block text-3xl md:text-4xl lg:text-5xl mt-2">
+                <span className="text-rose-500">Your Beauty Language</span>
               </span>
             </h1>
             
@@ -75,3 +75,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
