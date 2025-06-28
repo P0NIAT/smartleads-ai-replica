@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -16,6 +15,7 @@ const ChatWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [iconColor, setIconColor] = useState('text-beauty-pink');
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -39,9 +39,36 @@ const ChatWidget: React.FC = () => {
           }, 5000);
         }, 1000);
       }
+
+      // Determine icon color based on background
+      const currentSection = getCurrentSection();
+      if (currentSection && (currentSection.includes('hero') || currentSection.includes('pricing') || currentSection.includes('footer'))) {
+        setIconColor('text-white');
+      } else {
+        setIconColor('text-beauty-pink');
+      }
+    };
+
+    const getCurrentSection = () => {
+      const sections = document.querySelectorAll('section, header, footer');
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top + window.scrollY;
+        const sectionBottom = sectionTop + rect.height;
+        
+        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+          return section.className || section.tagName.toLowerCase();
+        }
+      }
+      return '';
     };
 
     window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+    
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasScrolled]);
 
@@ -128,7 +155,7 @@ const ChatWidget: React.FC = () => {
             }}
           >
             <div className="text-sm text-gray-700 font-medium">
-              Hi there! Have a question? Text us here.
+              Hi! I'm your beauty assistant. How can I help you today?
             </div>
             {/* Arrow pointing to chat button */}
             <div className="absolute -bottom-2 right-6 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
@@ -137,13 +164,13 @@ const ChatWidget: React.FC = () => {
         
         <Button
           onClick={openChat}
-          className="w-16 h-16 rounded-full bg-white hover:bg-gray-50 text-beauty-pink shadow-lg transition-all duration-300 transform hover:scale-110 border-2 border-gray-100"
+          className="w-16 h-16 rounded-full bg-white hover:bg-gray-50 shadow-lg transition-all duration-300 transform hover:scale-110 border-2 border-gray-100"
           size="icon"
           style={{ 
             filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))' 
           }}
         >
-          <MessageCircle size={28} className="text-beauty-pink" />
+          <MessageCircle size={28} className={iconColor} />
         </Button>
       </div>
 
