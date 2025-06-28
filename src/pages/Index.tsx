@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Navigation from '../components/Navigation';
 import Hero from '../components/sections/Hero';
 import Benefits from '../components/sections/Benefits';
-import HowItWorks from '../components/sections/HowItWorks';
+import BookConsultation from '../components/sections/BookConsultation';
 import Demo from '../components/sections/Demo';
 import CaseStudies from '../components/sections/CaseStudies';
 import Integration from '../components/sections/Integration';
@@ -58,7 +58,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <Benefits />
-      <HowItWorks />
+      <BookConsultation />
       <Demo />
       <CaseStudies />
       <Integration />
