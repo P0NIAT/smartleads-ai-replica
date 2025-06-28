@@ -29,7 +29,7 @@ const CaseStudies: React.FC = () => {
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-white mb-6">
             Real <span className="text-beauty-lavender">Results</span> from Real Businesses
           </h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+          <p className="text-xl text-beauty-cream max-w-3xl mx-auto">
             See how beauty businesses like yours are thriving with Smart Leads AI
           </p>
         </div>
@@ -42,7 +42,7 @@ const CaseStudies: React.FC = () => {
             >
               <div className="mb-6">
                 <div className="bg-white/10 rounded-xl h-48 mb-6 flex items-center justify-center">
-                  <span className="text-white text-lg">Case Study Image</span>
+                  <span className="text-beauty-cream text-lg">Case Study Image</span>
                 </div>
               </div>
               
@@ -60,13 +60,13 @@ const CaseStudies: React.FC = () => {
                 {study.business}
               </h3>
               <p className="text-beauty-lavender font-medium mb-4">{study.location}</p>
-              <p className="text-gray-200 leading-relaxed mb-6">
+              <p className="text-beauty-cream leading-relaxed mb-6">
                 {study.details}
               </p>
 
               <Button
                 variant="ghost"
-                className="text-beauty-lavender hover:text-white font-semibold p-0 h-auto group-hover:transform group-hover:scale-105 transition-all duration-300"
+                className="text-beauty-lavender hover:text-white hover:bg-beauty-lavender font-semibold p-0 h-auto group-hover:transform group-hover:scale-105 transition-all duration-300"
               >
                 Read Case Study →
               </Button>

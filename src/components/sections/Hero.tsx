@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import VideoPlayer from '../VideoPlayer';
@@ -22,14 +21,14 @@ const Hero: React.FC = () => {
           <div className="text-center mb-12">
             <h1 className="font-montserrat font-bold text-white mb-6 leading-tight">
               <span className="block text-4xl md:text-6xl lg:text-7xl">
-                <span className="text-rose-500">AI</span> That Speaks
+                <span className="text-beauty-lavender">AI</span> That Speaks
               </span>
               <span className="block text-3xl md:text-4xl lg:text-5xl mt-2">
-                <span className="text-rose-500">Your Beauty Language</span>
+                <span className="text-beauty-lavender">Your Beauty Language</span>
               </span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-beauty-cream max-w-4xl mx-auto leading-relaxed">
               Get More Bookings with Smart Leads AI<br />
               AI agents that chat just like you
             </p>
@@ -42,7 +41,7 @@ const Hero: React.FC = () => {
 
           {/* Subtext and CTAs */}
           <div className="text-center">
-            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-beauty-cream mb-8 max-w-3xl mx-auto">
               24/7 automated booking, customer support, and lead qualification. 
               Your AI agent learns your voice and handles conversations just like you would.
             </p>
@@ -75,4 +74,3 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-

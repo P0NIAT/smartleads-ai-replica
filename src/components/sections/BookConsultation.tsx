@@ -9,7 +9,7 @@ const BookConsultation: React.FC = () => {
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-white mb-6">
             Book Your <span className="text-beauty-lavender">Free Consultation</span>
           </h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+          <p className="text-xl text-beauty-cream max-w-3xl mx-auto">
             Ready to transform your business with AI? Schedule a free consultation to discuss your needs and see how our AI agents can boost your bookings.
           </p>
         </div>

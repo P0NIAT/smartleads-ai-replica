@@ -46,7 +46,7 @@ const Testimonials: React.FC = () => {
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-white mb-6">
             What Our <span className="text-beauty-lavender">Clients</span> Say
           </h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+          <p className="text-xl text-beauty-cream max-w-3xl mx-auto">
             Join hundreds of beauty businesses already growing with Smart Leads AI
           </p>
         </div>
@@ -83,7 +83,7 @@ const Testimonials: React.FC = () => {
                       <div className="font-montserrat font-bold text-lg text-beauty-lavender">
                         {testimonial.name}
                       </div>
-                      <div className="text-gray-200">
+                      <div className="text-beauty-cream">
                         {testimonial.business}, {testimonial.location}
                       </div>
                     </div>

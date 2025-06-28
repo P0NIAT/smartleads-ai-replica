@@ -44,11 +44,11 @@ const Navigation: React.FC = () => {
           </div>
           
           <div className="flex items-center gap-4">
-            <Button onClick={() => scrollToSection('demo')} className="bg-beauty-pink hover:bg-beauty-lavender text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105 bg-rose-500 hover:bg-rose-400">
+            <Button onClick={() => scrollToSection('demo')} className="bg-beauty-pink hover:bg-beauty-purple text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105">
               Watch Demo
             </Button>
             
-            <Button variant="outline" onClick={() => scrollToSection('contact')} className="border-beauty-lavender text-beauty-lavender hover:bg-beauty-lavender font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105 text-rose-500 bg-rose-200 hover:bg-rose-100">
+            <Button variant="outline" onClick={() => scrollToSection('contact')} className="border-beauty-lavender text-beauty-lavender hover:bg-beauty-lavender hover:text-white font-montserrat font-semibold px-6 py-2 transition-all duration-300 transform hover:scale-105">
               Contact Us
             </Button>
           </div>
