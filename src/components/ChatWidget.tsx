@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,6 +14,8 @@ interface Message {
 
 const ChatWidget: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -24,6 +26,24 @@ const ChatWidget: React.FC = () => {
   ]);
   const [currentMessage, setCurrentMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!hasScrolled && window.scrollY > 100) {
+        setHasScrolled(true);
+        setTimeout(() => {
+          setShowPopup(true);
+          // Auto-hide popup after 5 seconds
+          setTimeout(() => {
+            setShowPopup(false);
+          }, 5000);
+        }, 1000);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [hasScrolled]);
 
   const sendMessage = async () => {
     if (!currentMessage.trim() || isLoading) return;
@@ -89,16 +109,41 @@ const ChatWidget: React.FC = () => {
     }
   };
 
+  const openChat = () => {
+    setIsOpen(true);
+    setShowPopup(false);
+  };
+
   return (
     <>
       {/* Floating Chat Button */}
       <div className="fixed bottom-6 right-6 z-50">
+        {/* Popup Message */}
+        {showPopup && (
+          <div 
+            className="absolute bottom-20 right-0 bg-white rounded-lg shadow-lg border border-gray-200 p-3 mb-2 max-w-xs animate-fade-in-up cursor-pointer"
+            onClick={openChat}
+            style={{ 
+              filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))' 
+            }}
+          >
+            <div className="text-sm text-gray-700 font-medium">
+              Hi there! Have a question? Text us here.
+            </div>
+            {/* Arrow pointing to chat button */}
+            <div className="absolute -bottom-2 right-6 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+          </div>
+        )}
+        
         <Button
-          onClick={() => setIsOpen(true)}
-          className="w-14 h-14 rounded-full bg-beauty-pink hover:bg-beauty-pink/90 text-white shadow-lg transition-all duration-300 transform hover:scale-110"
+          onClick={openChat}
+          className="w-16 h-16 rounded-full bg-white hover:bg-gray-50 text-beauty-pink shadow-lg transition-all duration-300 transform hover:scale-110 border-2 border-gray-100"
           size="icon"
+          style={{ 
+            filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))' 
+          }}
         >
-          <MessageCircle size={24} />
+          <MessageCircle size={28} className="text-beauty-pink" />
         </Button>
       </div>
 
