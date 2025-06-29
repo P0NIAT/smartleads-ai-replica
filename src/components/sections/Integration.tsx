@@ -1,16 +1,17 @@
 
 import React from 'react';
+import { Instagram, MessageCircle, Phone, Globe, FileSpreadsheet, Target, Mail, Calendar } from 'lucide-react';
 
 const Integration: React.FC = () => {
   const integrations = [
-    { name: "Instagram", icon: "📱" },
-    { name: "Messenger", icon: "💬" },
-    { name: "WhatsApp", icon: "📞" },
-    { name: "Safari/Web", icon: "🌐" },
-    { name: "Sheets", icon: "📊" },
-    { name: "HubSpot", icon: "🎯" },
-    { name: "Twilio", icon: "📧" },
-    { name: "Calendly", icon: "📅" }
+    { name: "Instagram", icon: Instagram, bgColor: "bg-gradient-to-br from-purple-500 to-pink-500" },
+    { name: "Messenger", icon: MessageCircle, bgColor: "bg-gradient-to-br from-blue-500 to-purple-500" },
+    { name: "WhatsApp", icon: Phone, bgColor: "bg-green-500" },
+    { name: "Safari/Web", icon: Globe, bgColor: "bg-gradient-to-br from-red-500 via-yellow-500 to-green-500" },
+    { name: "Sheets", icon: FileSpreadsheet, bgColor: "bg-green-600" },
+    { name: "HubSpot", icon: Target, bgColor: "bg-orange-500" },
+    { name: "Twilio", icon: Mail, bgColor: "bg-red-500" },
+    { name: "Calendly", icon: Calendar, bgColor: "bg-blue-500" }
   ];
 
   return (
@@ -25,20 +26,23 @@ const Integration: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          {integrations.map((integration, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center p-6 rounded-2xl bg-white hover:bg-beauty-lavender/10 transition-all duration-300 group shadow-lg border border-beauty-lavender/20"
-            >
-              <div className="w-16 h-16 bg-beauty-pink rounded-full flex items-center justify-center text-2xl mb-4 group-hover:transform group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-beauty-purple/30">
-                {integration.icon}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+          {integrations.map((integration, index) => {
+            const IconComponent = integration.icon;
+            return (
+              <div
+                key={index}
+                className="flex flex-col items-center p-8 rounded-3xl bg-white hover:bg-beauty-lavender/5 transition-all duration-300 group shadow-lg border border-gray-100 hover:shadow-xl"
+              >
+                <div className={`w-20 h-20 ${integration.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:transform group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <IconComponent className="w-10 h-10 text-white" strokeWidth={1.5} />
+                </div>
+                <span className="font-montserrat font-semibold text-beauty-purple text-center">
+                  {integration.name}
+                </span>
               </div>
-              <span className="font-montserrat font-semibold text-beauty-purple">
-                {integration.name}
-              </span>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
