@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { supabase } from '@/integrations/supabase/client';
 
 interface Message {
@@ -148,17 +149,25 @@ const ChatWidget: React.FC = () => {
         {/* Popup Message */}
         {showPopup && (
           <div 
-            className="absolute bottom-20 right-0 bg-white rounded-lg shadow-lg border border-gray-200 p-3 mb-2 max-w-xs animate-fade-in-up cursor-pointer"
+            className="absolute bottom-20 right-0 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 mb-2 max-w-xs animate-fade-in-up cursor-pointer flex items-start gap-3"
             onClick={openChat}
             style={{ 
-              filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))' 
+              filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1))' 
             }}
           >
-            <div className="text-sm text-gray-700 font-medium">
-              Hi! I'm your beauty assistant. How can I help you today?
+            <Avatar className="w-10 h-10 flex-shrink-0">
+              <AvatarImage src="/placeholder.svg" alt="Assistant" />
+              <AvatarFallback className="bg-beauty-pink text-white text-sm font-semibold">
+                BA
+              </AvatarFallback>
+            </Avatar>
+            <div className="flex-1">
+              <div className="text-sm text-gray-800 font-medium leading-relaxed">
+                Hi there, have a question? Text us here.
+              </div>
             </div>
             {/* Arrow pointing to chat button */}
-            <div className="absolute -bottom-2 right-6 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+            <div className="absolute -bottom-2 right-8 w-0 h-0 border-l-4 border-r-4 border-t-8 border-transparent border-t-white"></div>
           </div>
         )}
         
