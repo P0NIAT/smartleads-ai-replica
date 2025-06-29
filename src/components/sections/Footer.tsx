@@ -6,6 +6,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Mail } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 
 const Footer: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +16,7 @@ const Footer: React.FC = () => {
     phone: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -23,10 +26,39 @@ const Footer: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission logic here
+    setIsSubmitting(true);
+
+    try {
+      console.log('Submitting contact form:', formData);
+      
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+
+      if (error) {
+        console.error('Error sending email:', error);
+        toast.error('Failed to send message. Please try again.');
+        return;
+      }
+
+      console.log('Email sent successfully:', data);
+      toast.success('Message sent successfully! We\'ll get back to you soon.');
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -65,6 +97,7 @@ const Footer: React.FC = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
+                    disabled={isSubmitting}
                     className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-beauty-cream focus:ring-beauty-cream"
                     placeholder="Your full name"
                   />
@@ -81,6 +114,7 @@ const Footer: React.FC = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
+                    disabled={isSubmitting}
                     className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-beauty-cream focus:ring-beauty-cream"
                     placeholder="your@email.com"
                   />
@@ -97,6 +131,7 @@ const Footer: React.FC = () => {
                   type="tel"
                   value={formData.phone}
                   onChange={handleInputChange}
+                  disabled={isSubmitting}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-beauty-cream focus:ring-beauty-cream"
                   placeholder="(555) 123-4567"
                 />
@@ -113,6 +148,7 @@ const Footer: React.FC = () => {
                   onChange={handleInputChange}
                   required
                   rows={4}
+                  disabled={isSubmitting}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-beauty-cream focus:ring-beauty-cream resize-none"
                   placeholder="Tell us about your project or how we can help..."
                 />
@@ -120,9 +156,10 @@ const Footer: React.FC = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-beauty-cream text-beauty-purple hover:bg-white font-montserrat font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:transform hover:scale-105"
+                disabled={isSubmitting}
+                className="w-full bg-beauty-cream text-beauty-purple hover:bg-white font-montserrat font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>
           </div>
