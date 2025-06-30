@@ -1,35 +1,55 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 interface VideoPlayerProps {
   src: string;
-  poster: string;
+  poster?: string;
   className?: string;
+  autoPlay?: boolean;
 }
 
-const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "" }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [showOverlay, setShowOverlay] = useState(true);
+const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", autoPlay = false }) => {
+  const [isPlaying, setIsPlaying] = useState(autoPlay);
+  const [isMuted, setIsMuted] = useState(true);
+  const [showOverlay, setShowOverlay] = useState(!autoPlay);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handlePlay = () => {
-    if (videoRef.current) {
-      videoRef.current.play();
-      setIsPlaying(true);
-      setShowOverlay(false);
+  useEffect(() => {
+    if (autoPlay && videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log('Autoplay failed:', error);
+      });
     }
-  };
+  }, [autoPlay]);
 
-  const handlePause = () => {
+  const handleVideoClick = () => {
     if (videoRef.current) {
-      videoRef.current.pause();
-      setIsPlaying(false);
+      if (isMuted) {
+        // Unmute, restart, and play with sound
+        videoRef.current.muted = false;
+        videoRef.current.currentTime = 0;
+        videoRef.current.play();
+        setIsMuted(false);
+        setIsPlaying(true);
+        setShowOverlay(false);
+      } else {
+        // Toggle play/pause
+        if (isPlaying) {
+          videoRef.current.pause();
+          setIsPlaying(false);
+        } else {
+          videoRef.current.play();
+          setIsPlaying(true);
+        }
+      }
     }
   };
 
   const handleVideoEnd = () => {
-    setIsPlaying(false);
-    setShowOverlay(true);
+    if (!isMuted) {
+      setIsPlaying(false);
+      setShowOverlay(true);
+    }
   };
 
   return (
@@ -37,17 +57,20 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "" }
       <video
         ref={videoRef}
         poster={poster}
-        muted
-        loop
+        muted={isMuted}
+        loop={isMuted} // Only loop when muted (autoplay mode)
         playsInline
+        autoPlay={autoPlay}
         onEnded={handleVideoEnd}
-        className="w-full h-full object-cover"
+        onClick={handleVideoClick}
+        className="w-full h-full object-cover cursor-pointer"
       >
         <source src={src} type="video/mp4" />
+        <source src={src} type="video/mov" />
         Your browser does not support the video tag.
       </video>
       
-      {showOverlay && (
+      {showOverlay && !autoPlay && (
         <div className="video-overlay">
           <div className="floating-circle"></div>
           <div className="floating-circle"></div>
@@ -55,17 +78,16 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "" }
           
           <div 
             className="play-button animate-pulse-glow"
-            onClick={handlePlay}
+            onClick={handleVideoClick}
           >
           </div>
         </div>
       )}
       
-      {isPlaying && (
-        <div 
-          className="absolute inset-0 cursor-pointer"
-          onClick={handlePause}
-        />
+      {isMuted && autoPlay && (
+        <div className="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm">
+          Click to unmute
+        </div>
       )}
     </div>
   );

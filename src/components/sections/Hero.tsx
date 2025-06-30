@@ -36,7 +36,11 @@ const Hero: React.FC = () => {
 
           {/* Video Container */}
           <div className="mb-12">
-            <VideoPlayer src="/ai-demo.mp4" poster="/beauty-hero.jpg" className="mx-auto" />
+            <VideoPlayer 
+              src="https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/videos/IMG_4665.MOV" 
+              className="mx-auto" 
+              autoPlay={true}
+            />
           </div>
 
           {/* Subtext and CTAs */}
