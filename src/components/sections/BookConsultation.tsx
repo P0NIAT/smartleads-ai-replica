@@ -17,7 +17,7 @@ const BookConsultation: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
             <div className="calendly-inline-widget" 
-                 data-url="https://calendly.com/your-calendly-link" 
+                 data-url="https://calendly.com/smartleadsai/free-consultation" 
                  style={{ minWidth: '320px', height: '700px' }}>
             </div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
