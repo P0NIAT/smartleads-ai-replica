@@ -12,15 +12,25 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
   const [isPlaying, setIsPlaying] = useState(autoPlay);
   const [isMuted, setIsMuted] = useState(true);
   const [showOverlay, setShowOverlay] = useState(!autoPlay);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (autoPlay && videoRef.current) {
+    if (autoPlay && videoRef.current && videoLoaded) {
       videoRef.current.play().catch(error => {
         console.log('Autoplay failed:', error);
       });
     }
-  }, [autoPlay]);
+  }, [autoPlay, videoLoaded]);
+
+  const handleVideoLoaded = () => {
+    console.log('Video loaded successfully');
+    setVideoLoaded(true);
+  };
+
+  const handleVideoError = (error: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    console.error('Video error:', error);
+  };
 
   const handleVideoClick = () => {
     if (videoRef.current) {
@@ -53,20 +63,23 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
   };
 
   return (
-    <div className={`video-container ${className}`}>
+    <div className={`video-container relative ${className}`}>
       <video
         ref={videoRef}
         poster={poster}
         muted={isMuted}
-        loop={isMuted} // Only loop when muted (autoplay mode)
+        loop={isMuted}
         playsInline
         autoPlay={autoPlay}
+        onLoadedData={handleVideoLoaded}
+        onError={handleVideoError}
         onEnded={handleVideoEnd}
         onClick={handleVideoClick}
         className="w-full h-full object-cover cursor-pointer"
+        style={{ display: 'block' }}
       >
         <source src={src} type="video/mp4" />
-        <source src={src} type="video/mov" />
+        <source src={src} type="video/quicktime" />
         Your browser does not support the video tag.
       </video>
       
@@ -84,7 +97,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
         </div>
       )}
       
-      {isMuted && autoPlay && (
+      {isMuted && autoPlay && videoLoaded && (
         <div className="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm">
           Click to unmute
         </div>
