@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
           {/* Video Container */}
           <div className="mb-12">
             <VideoPlayer 
-              src="https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/videos/IMG_4665.MOV" 
+              src="https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/videos/Smartlead1080.mp4" 
               className="mx-auto" 
               autoPlay={true}
             />
