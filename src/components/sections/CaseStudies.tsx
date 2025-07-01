@@ -10,7 +10,7 @@ const CaseStudies: React.FC = () => {
       metric: "+22%",
       description: "Monthly Bookings",
       details: "Increased customer engagement through 24/7 AI chat support, resulting in significantly more bookings.",
-      image: "/case-study-1.jpg"
+      image: "https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/pictures//logoBestNails.png"
     },
     {
       business: "Bella Hair Salon", 
@@ -18,7 +18,7 @@ const CaseStudies: React.FC = () => {
       metric: "+17%",
       description: "Monthly Bookings", 
       details: "Automated appointment scheduling and customer inquiries led to improved booking conversion rates.",
-      image: "/case-study-2.jpg"
+      image: "https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/pictures//logoChair.png"
     }
   ];
 
@@ -41,8 +41,12 @@ const CaseStudies: React.FC = () => {
               className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group border border-white/20"
             >
               <div className="mb-6">
-                <div className="bg-white/10 rounded-xl h-48 mb-6 flex items-center justify-center">
-                  <span className="text-beauty-cream text-lg">Case Study Image</span>
+                <div className="bg-white/10 rounded-xl w-48 h-48 mx-auto mb-6 flex items-center justify-center p-4">
+                  <img 
+                    src={study.image} 
+                    alt={`${study.business} logo`}
+                    className="max-w-full max-h-full object-contain"
+                  />
                 </div>
               </div>
               
