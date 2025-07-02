@@ -152,6 +152,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
           isFullscreen ? 'object-contain' : 'object-cover'
         }`}
         style={{ display: 'block' }}
+        controlsList="nodownload nofullscreen noremoteplayback"
+        disablePictureInPicture
       >
         <source src={src} type="video/mp4" />
         <source src={src} type="video/quicktime" />
@@ -172,35 +174,33 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
         </div>
       )}
       
-      {/* Video Controls */}
+      {/* Custom Video Controls */}
       {showControls && !isMuted && (
-        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2 transition-opacity duration-300">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={handlePlayPause}
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
-              aria-label={isPlaying ? 'Pause' : 'Play'}
-            >
-              {isPlaying ? (
-                <Pause className="w-5 h-5 text-white" />
-              ) : (
-                <Play className="w-5 h-5 text-white ml-0.5" />
-              )}
-            </button>
-          </div>
+        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+          <button
+            onClick={handlePlayPause}
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-beauty-purple/80 hover:bg-beauty-purple backdrop-blur-sm border-2 border-beauty-lavender transition-all duration-300 transform hover:scale-105"
+            aria-label={isPlaying ? 'Pause' : 'Play'}
+          >
+            {isPlaying ? (
+              <Pause className="w-6 h-6 text-beauty-cream" />
+            ) : (
+              <Play className="w-6 h-6 text-beauty-cream ml-0.5" />
+            )}
+          </button>
           
           <button
             onClick={handleFullscreen}
-            className="flex items-center justify-center w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-beauty-pink/80 hover:bg-beauty-pink backdrop-blur-sm border-2 border-beauty-lavender transition-all duration-300 transform hover:scale-105"
             aria-label="Fullscreen"
           >
-            <Maximize className="w-5 h-5 text-white" />
+            <Maximize className="w-6 h-6 text-beauty-cream" />
           </button>
         </div>
       )}
       
       {isMuted && autoPlay && videoLoaded && (
-        <div className="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm">
+        <div className="absolute bottom-4 right-4 bg-beauty-purple/80 backdrop-blur-sm text-beauty-cream px-4 py-2 rounded-full text-sm border border-beauty-lavender">
           Click to unmute
         </div>
       )}
