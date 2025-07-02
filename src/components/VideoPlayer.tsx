@@ -15,6 +15,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
   const [showOverlay, setShowOverlay] = useState(!autoPlay);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showControls, setShowControls] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -24,6 +25,30 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
       });
     }
   }, [autoPlay, videoLoaded]);
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      const isCurrentlyFullscreen = !!(
+        document.fullscreenElement ||
+        (document as any).webkitFullscreenElement ||
+        (document as any).mozFullScreenElement ||
+        (document as any).msFullscreenElement
+      );
+      setIsFullscreen(isCurrentlyFullscreen);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
+    };
+  }, []);
 
   const handleVideoLoaded = () => {
     console.log('Video loaded successfully');
@@ -123,7 +148,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
         onError={handleVideoError}
         onEnded={handleVideoEnd}
         onClick={handleVideoClick}
-        className="w-full h-full object-cover cursor-pointer"
+        className={`w-full h-full cursor-pointer ${
+          isFullscreen ? 'object-contain' : 'object-cover'
+        }`}
         style={{ display: 'block' }}
       >
         <source src={src} type="video/mp4" />
