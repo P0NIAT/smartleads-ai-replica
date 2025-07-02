@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { supabase } from '@/integrations/supabase/client';
+import Logo from './Logo';
 
 interface Message {
   id: string;
@@ -207,7 +207,10 @@ const ChatWidget: React.FC = () => {
           <div className="relative bg-white rounded-lg shadow-2xl w-full max-w-md h-96 flex flex-col animate-fade-in-up">
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b bg-gradient-to-r from-beauty-purple to-beauty-pink text-white rounded-t-lg">
-              <h3 className="font-montserrat font-bold text-lg">Beauty Assistant</h3>
+              <div className="flex items-center gap-3">
+                <Logo showText={false} size="sm" />
+                <h3 className="font-montserrat font-bold text-lg">Smart Leads AI Assistant</h3>
+              </div>
               <Button
                 onClick={() => setIsOpen(false)}
                 variant="ghost"
@@ -225,6 +228,14 @@ const ChatWidget: React.FC = () => {
                   key={message.id}
                   className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
                 >
+                  {!message.isUser && (
+                    <Avatar className="w-8 h-8 mr-3 flex-shrink-0">
+                      <AvatarImage src="https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/pictures//kate.jpg" alt="Kate" />
+                      <AvatarFallback className="bg-beauty-pink text-white text-xs font-semibold">
+                        K
+                      </AvatarFallback>
+                    </Avatar>
+                  )}
                   <div
                     className={`max-w-[80%] px-3 py-2 rounded-lg text-sm ${
                       message.isUser
@@ -239,6 +250,12 @@ const ChatWidget: React.FC = () => {
               
               {isLoading && (
                 <div className="flex justify-start">
+                  <Avatar className="w-8 h-8 mr-3 flex-shrink-0">
+                    <AvatarImage src="https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/pictures//kate.jpg" alt="Kate" />
+                    <AvatarFallback className="bg-beauty-pink text-white text-xs font-semibold">
+                      K
+                    </AvatarFallback>
+                  </Avatar>
                   <div className="bg-beauty-lavender text-white px-3 py-2 rounded-lg text-sm">
                     <div className="flex space-x-1">
                       <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
