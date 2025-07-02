@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -149,16 +150,17 @@ const ChatWidget: React.FC = () => {
         {/* Popup Message */}
         {showPopup && (
           <div 
-            className="absolute bottom-20 right-0 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 mb-2 max-w-xs animate-fade-in-up cursor-pointer flex items-start gap-3"
+            className="absolute bottom-20 right-0 bg-white rounded-full shadow-xl border border-gray-100 p-6 mb-2 max-w-xs animate-fade-in-up cursor-pointer flex items-center gap-4"
             onClick={openChat}
             style={{ 
-              filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1))' 
+              filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1))',
+              minWidth: '280px'
             }}
           >
-            <Avatar className="w-10 h-10 flex-shrink-0">
-              <AvatarImage src="/placeholder.svg" alt="Assistant" />
+            <Avatar className="w-12 h-12 flex-shrink-0">
+              <AvatarImage src="https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/pictures//kate.jpg" alt="Kate" />
               <AvatarFallback className="bg-beauty-pink text-white text-sm font-semibold">
-                BA
+                K
               </AvatarFallback>
             </Avatar>
             <div className="flex-1">
@@ -166,8 +168,17 @@ const ChatWidget: React.FC = () => {
                 Hi there, have a question? Text us here.
               </div>
             </div>
-            {/* Arrow pointing to chat button */}
-            <div className="absolute -bottom-2 right-8 w-0 h-0 border-l-4 border-r-4 border-t-8 border-transparent border-t-white"></div>
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowPopup(false);
+              }}
+              variant="ghost"
+              size="icon"
+              className="h-6 w-6 text-gray-400 hover:text-gray-600 flex-shrink-0"
+            >
+              <X size={14} />
+            </Button>
           </div>
         )}
         
