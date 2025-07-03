@@ -13,6 +13,14 @@ const Hero: React.FC = () => {
     }
   };
 
+  const openChatWidget = () => {
+    // This will trigger the chat widget to open
+    const chatWidget = document.querySelector('[data-chat-widget]') as HTMLElement;
+    if (chatWidget) {
+      chatWidget.click();
+    }
+  };
+
   return (
     <section id="hero" className="min-h-screen bg-gradient-to-br from-beauty-purple to-beauty-pink relative overflow-hidden">
       <div className="safe-zone relative z-10">
@@ -29,8 +37,8 @@ const Hero: React.FC = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-beauty-cream max-w-4xl mx-auto leading-relaxed">
-              Get More Bookings with Smart Leads AI<br />
-              AI agents that chat just like you
+              Get More Bookings with AI<br />
+              Agents that chat just like you
             </p>
           </div>
 
@@ -51,12 +59,12 @@ const Hero: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button onClick={() => scrollToSection('demo')} size="lg" className="bg-beauty-lavender hover:bg-beauty-purple text-white font-montserrat font-bold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
-                Watch Live Demo
+              <Button onClick={() => scrollToSection('contact')} size="lg" className="bg-beauty-lavender hover:bg-beauty-purple text-white font-montserrat font-bold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
+                Book Consultation
               </Button>
               
-              <Button onClick={() => scrollToSection('pricing')} variant="outline" size="lg" className="border-2 border-beauty-lavender text-beauty-lavender hover:bg-beauty-lavender hover:text-white font-montserrat font-bold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
-                View Pricing
+              <Button onClick={openChatWidget} variant="outline" size="lg" className="border-2 border-beauty-lavender text-beauty-lavender hover:bg-beauty-lavender hover:text-white font-montserrat font-bold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
+                Test Agent Now
               </Button>
             </div>
           </div>
