@@ -15,14 +15,14 @@ const BookConsultation: React.FC = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 md:p-8 border border-white/20">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden">
             <iframe
               src="https://calendly.com/smartleadsai/free-consultation"
               width="100%"
-              height="700"
+              height="900"
               frameBorder="0"
               scrolling="no"
-              className="rounded-lg"
+              className="block"
               title="Schedule a Free Consultation"
             ></iframe>
           </div>
