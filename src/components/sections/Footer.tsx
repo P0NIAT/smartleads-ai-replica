@@ -61,6 +61,10 @@ const Footer: React.FC = () => {
     }
   };
 
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:info@smartleadsai.io';
+  };
+
   return (
     <footer id="contact" className="bg-gradient-to-br from-beauty-purple to-beauty-pink text-white py-12">
       <div className="safe-zone">
@@ -76,12 +80,15 @@ const Footer: React.FC = () => {
               Get in Touch
             </h3>
             
-            {/* Email Address Display */}
-            <div className="flex items-center justify-center gap-2 mb-6 text-beauty-cream">
-              <Mail className="w-5 h-5" />
-              <a href="mailto:info@smartleadsai.io" className="hover:text-white transition-colors">
+            {/* Email Address Button */}
+            <div className="flex justify-center mb-6">
+              <Button 
+                onClick={handleEmailClick}
+                className="bg-beauty-lavender hover:bg-beauty-purple text-white font-montserrat font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:transform hover:scale-105 flex items-center gap-2"
+              >
+                <Mail className="w-5 h-5" />
                 info@smartleadsai.io
-              </a>
+              </Button>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -133,7 +140,7 @@ const Footer: React.FC = () => {
                   onChange={handleInputChange}
                   disabled={isSubmitting}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-beauty-cream focus:ring-beauty-cream"
-                  placeholder="(555) 123-4567"
+                  placeholder="07123 456789"
                 />
               </div>
 
@@ -150,7 +157,7 @@ const Footer: React.FC = () => {
                   rows={4}
                   disabled={isSubmitting}
                   className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:border-beauty-cream focus:ring-beauty-cream resize-none"
-                  placeholder="Tell us about your project or how we can help..."
+                  placeholder="Tell us how we can help your business..."
                 />
               </div>
 
