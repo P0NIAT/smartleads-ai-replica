@@ -6,20 +6,20 @@ const Testimonials: React.FC = () => {
 
   const testimonials = [
     {
-      name: "Emma Thompson",
+      name: "Amelia Jones",
       business: "Radiance Beauty Spa",
       location: "London",
       quote: "Smart Leads AI has transformed our customer service. The AI sounds exactly like me - our clients can't tell the difference!",
       rating: 5,
-      avatar: "/testimonial-1.jpg"
+      avatar: "https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/pictures//owner1.jpg"
     },
     {
-      name: "James Mitchell", 
+      name: "Isla Robinson", 
       business: "Elite Hair Studio",
       location: "Birmingham",
-      quote: "We've seen a 25% increase in bookings since implementing Smart Leads AI. It's like having a dedicated receptionist 24/7.",
+      quote: "We've seen an increase in bookings since implementing AI Agent. It's like having a dedicated receptionist 24/7.",
       rating: 5,
-      avatar: "/testimonial-2.jpg"
+      avatar: "https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/pictures//owner2.jpg"
     },
     {
       name: "Sophie Chen",
@@ -27,7 +27,7 @@ const Testimonials: React.FC = () => {
       location: "Manchester",
       quote: "The personalization is incredible. The AI agent maintains our brand voice perfectly across all customer interactions.",
       rating: 5,
-      avatar: "/testimonial-3.jpg"
+      avatar: "https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/pictures//owner3.jpg"
     }
   ];
 
@@ -63,10 +63,12 @@ const Testimonials: React.FC = () => {
                   className="w-full flex-shrink-0 bg-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12"
                 >
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-gradient-to-br from-beauty-lavender to-beauty-pink rounded-full mx-auto mb-6 flex items-center justify-center">
-                      <span className="text-2xl font-montserrat font-bold text-white">
-                        {testimonial.name.split(' ').map(n => n[0]).join('')}
-                      </span>
+                    <div className="w-20 h-20 rounded-full mx-auto mb-6 overflow-hidden">
+                      <img 
+                        src={testimonial.avatar} 
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     
                     <div className="flex justify-center mb-6">
