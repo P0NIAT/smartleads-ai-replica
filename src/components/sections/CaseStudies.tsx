@@ -1,12 +1,11 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
 
 const CaseStudies: React.FC = () => {
   const studies = [
     {
-      business: "Luxe Nail Studio",
-      location: "London, UK",
+      business: "Best Nails",
+      location: "Northampton, UK",
       metric: "+22%",
       description: "Monthly Bookings",
       details: "Increased customer engagement through 24/7 AI chat support, resulting in significantly more bookings.",
@@ -41,19 +40,18 @@ const CaseStudies: React.FC = () => {
               className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group border border-white/20"
             >
               <div className="mb-6">
-                <div className="bg-white/10 rounded-xl w-48 h-48 mx-auto mb-6 flex items-center justify-center p-4">
+                <div className="bg-white/10 rounded-xl w-48 h-48 mx-auto mb-6 flex items-center justify-center overflow-hidden">
                   <img 
                     src={study.image} 
                     alt={`${study.business} logo`}
-                    className="max-w-full max-h-full object-contain"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
               
               <div className="text-center mb-6">
-                <div className="text-6xl font-montserrat font-bold text-beauty-lavender mb-2 relative">
+                <div className="text-6xl font-montserrat font-bold text-beauty-lavender mb-2 relative" style={{ textShadow: '1px 1px 0px white' }}>
                   {study.metric}
-                  <div className="absolute inset-0 text-white opacity-20 blur-sm">{study.metric}</div>
                 </div>
                 <div className="text-xl font-semibold text-white mb-1">
                   {study.description}
@@ -63,17 +61,10 @@ const CaseStudies: React.FC = () => {
               <h3 className="font-montserrat font-bold text-2xl text-white mb-2">
                 {study.business}
               </h3>
-              <p className="text-beauty-lavender font-medium mb-4">{study.location}</p>
+              <p className="text-white font-medium mb-4">{study.location}</p>
               <p className="text-beauty-cream leading-relaxed mb-6">
                 {study.details}
               </p>
-
-              <Button
-                variant="ghost"
-                className="text-beauty-lavender hover:text-white hover:bg-beauty-lavender font-semibold p-0 h-auto group-hover:transform group-hover:scale-105 transition-all duration-300"
-              >
-                Read Case Study →
-              </Button>
             </div>
           ))}
         </div>
