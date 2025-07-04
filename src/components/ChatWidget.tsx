@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, X, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -150,21 +151,21 @@ const ChatWidget: React.FC = () => {
         {/* Popup Message */}
         {showPopup && (
           <div 
-            className="absolute bottom-20 right-0 bg-white rounded-full shadow-xl border border-gray-100 p-6 mb-2 max-w-xs animate-fade-in-up cursor-pointer flex items-center gap-4"
+            className="absolute bottom-20 right-0 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 mb-2 max-w-xs animate-fade-in-up cursor-pointer flex items-center gap-3"
             onClick={openChat}
             style={{ 
               filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1))',
-              minWidth: '280px'
+              minWidth: '260px'
             }}
           >
-            <Avatar className="w-12 h-12 flex-shrink-0">
+            <Avatar className="w-10 h-10 flex-shrink-0">
               <AvatarImage src="https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/pictures//kate.jpg" alt="Kate" />
               <AvatarFallback className="bg-beauty-pink text-white text-sm font-semibold">
                 K
               </AvatarFallback>
             </Avatar>
             <div className="flex-1">
-              <div className="text-sm text-gray-800 font-medium leading-relaxed">
+              <div className="text-sm text-gray-700 font-medium">
                 Hi there, have a question? Text us here.
               </div>
             </div>
