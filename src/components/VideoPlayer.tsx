@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Maximize } from 'lucide-react';
 
@@ -16,7 +15,11 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showControls, setShowControls] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (autoPlay && videoRef.current && videoLoaded) {
@@ -53,6 +56,15 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
   const handleVideoLoaded = () => {
     console.log('Video loaded successfully');
     setVideoLoaded(true);
+    if (videoRef.current) {
+      setDuration(videoRef.current.duration);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current && !isDragging) {
+      setCurrentTime(videoRef.current.currentTime);
+    }
   };
 
   const handleVideoError = (error: React.SyntheticEvent<HTMLVideoElement, Event>) => {
@@ -131,6 +143,42 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
     }
   };
 
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (videoRef.current && progressRef.current) {
+      const rect = progressRef.current.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const width = rect.width;
+      const percentage = clickX / width;
+      const newTime = percentage * duration;
+      
+      videoRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
+  };
+
+  const handleProgressMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+    handleProgressClick(e);
+  };
+
+  const handleProgressMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isDragging) {
+      handleProgressClick(e);
+    }
+  };
+
+  const handleProgressMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const formatTime = (time: number) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  const progressPercentage = duration > 0 ? (currentTime / duration) * 100 : 0;
+
   return (
     <div 
       className={`video-container relative ${className}`}
@@ -145,6 +193,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
         playsInline
         autoPlay={autoPlay}
         onLoadedData={handleVideoLoaded}
+        onTimeUpdate={handleTimeUpdate}
         onError={handleVideoError}
         onEnded={handleVideoEnd}
         onClick={handleVideoClick}
@@ -181,26 +230,55 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
       
       {/* Custom Video Controls */}
       {showControls && !isMuted && (
-        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-          <button
-            onClick={handlePlayPause}
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-beauty-purple/80 hover:bg-beauty-purple backdrop-blur-sm border-2 border-beauty-lavender transition-all duration-300 transform hover:scale-105"
-            aria-label={isPlaying ? 'Pause' : 'Play'}
-          >
-            {isPlaying ? (
-              <Pause className="w-6 h-6 text-beauty-cream" />
-            ) : (
-              <Play className="w-6 h-6 text-beauty-cream ml-0.5" />
-            )}
-          </button>
+        <div className="absolute bottom-4 left-4 right-4">
+          {/* Progress Bar */}
+          <div className="mb-4">
+            <div 
+              ref={progressRef}
+              className="relative h-2 bg-beauty-cream/30 rounded-full cursor-pointer backdrop-blur-sm border border-beauty-lavender/30"
+              onClick={handleProgressClick}
+              onMouseDown={handleProgressMouseDown}
+              onMouseMove={handleProgressMouseMove}
+              onMouseUp={handleProgressMouseUp}
+              onMouseLeave={handleProgressMouseUp}
+            >
+              <div 
+                className="absolute top-0 left-0 h-full bg-gradient-to-r from-beauty-pink to-beauty-purple rounded-full transition-all duration-150"
+                style={{ width: `${progressPercentage}%` }}
+              />
+              <div 
+                className="absolute top-1/2 transform -translate-y-1/2 w-4 h-4 bg-beauty-cream rounded-full shadow-lg border-2 border-beauty-purple transition-all duration-150"
+                style={{ left: `calc(${progressPercentage}% - 8px)` }}
+              />
+            </div>
+            <div className="flex justify-between mt-2 text-beauty-cream text-sm">
+              <span>{formatTime(currentTime)}</span>
+              <span>{formatTime(duration)}</span>
+            </div>
+          </div>
           
-          <button
-            onClick={handleFullscreen}
-            className="flex items-center justify-center w-12 h-12 rounded-full bg-beauty-pink/80 hover:bg-beauty-pink backdrop-blur-sm border-2 border-beauty-lavender transition-all duration-300 transform hover:scale-105"
-            aria-label="Fullscreen"
-          >
-            <Maximize className="w-6 h-6 text-beauty-cream" />
-          </button>
+          {/* Control Buttons */}
+          <div className="flex items-center justify-between">
+            <button
+              onClick={handlePlayPause}
+              className="flex items-center justify-center w-12 h-12 rounded-full bg-beauty-purple/80 hover:bg-beauty-purple backdrop-blur-sm border-2 border-beauty-lavender transition-all duration-300 transform hover:scale-105"
+              aria-label={isPlaying ? 'Pause' : 'Play'}
+            >
+              {isPlaying ? (
+                <Pause className="w-6 h-6 text-beauty-cream" />
+              ) : (
+                <Play className="w-6 h-6 text-beauty-cream ml-0.5" />
+              )}
+            </button>
+            
+            <button
+              onClick={handleFullscreen}
+              className="flex items-center justify-center w-12 h-12 rounded-full bg-beauty-pink/80 hover:bg-beauty-pink backdrop-blur-sm border-2 border-beauty-lavender transition-all duration-300 transform hover:scale-105"
+              aria-label="Fullscreen"
+            >
+              <Maximize className="w-6 h-6 text-beauty-cream" />
+            </button>
+          </div>
         </div>
       )}
       
