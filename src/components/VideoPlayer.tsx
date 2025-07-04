@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Maximize } from 'lucide-react';
 
@@ -147,8 +148,15 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
         onError={handleVideoError}
         onEnded={handleVideoEnd}
         onClick={handleVideoClick}
-        className={`w-full h-full cursor-pointer object-contain`}
-        style={{ display: 'block' }}
+        className={`w-full h-full cursor-pointer ${isFullscreen ? 'object-contain' : 'object-contain'}`}
+        style={{ 
+          display: 'block',
+          ...(isFullscreen && {
+            width: '100vw',
+            height: '100vh',
+            objectFit: 'contain'
+          })
+        }}
         controlsList="nodownload nofullscreen noremoteplaybook"
         disablePictureInPicture
       >
