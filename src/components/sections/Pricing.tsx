@@ -7,56 +7,53 @@ const Pricing: React.FC = () => {
     {
       name: "Starter",
       price: "£49",
-      period: "/mo*",
-      description: "Perfect for small beauty businesses",
+      period: "/month*",
+      description: "Get your first automation up and running – perfect for new or small businesses looking to save time and attract their first clients.",
       features: [
         "1 AI agent",
-        "1,000 conversations/month",
-        "1 integration",
-        "Custom tuning & training",
-        "Templates included",
-        "Priority support",
-        "Analytics dashboard",
+        "1 Social Media Assistant",
+        "1 Update a Month",
+        "500 conversations/month",
+        "HubSpot CRM",
         "Cancel anytime"
       ],
       popular: false,
-      bgColor: "bg-white"
+      bgColor: "bg-white",
+      icon: "💼"
     },
     {
-      name: "Growing Business", 
+      name: "Premium", 
       price: "£99",
-      period: "/mo*",
-      description: "Perfect for established beauty businesses",
+      period: "/month*",
+      description: "Unlock powerful tools and smarter workflows designed to help growing beauty businesses boost bookings and stay organized.",
       features: [
-        "3 AI agents",
-        "3,000 conversations/month", 
-        "3 integrations",
-        "All Starter features",
-        "Advanced analytics",
-        "Multi-platform support",
-        "Priority training",
+        "3 AI Agents",
+        "3 Social Media Assistants", 
+        "3 updates a month",
+        "1,500 conversations/month",
+        "HubSpot CRM",
         "Cancel anytime"
       ],
       popular: true,
-      bgColor: "bg-beauty-pink/10"
+      bgColor: "bg-beauty-pink/10",
+      icon: "🚀"
     },
     {
-      name: "Enterprise",
-      price: "Custom",
-      period: "pricing*",
-      description: "Perfect for large chains & franchises",
+      name: "Ultimate",
+      price: "£299",
+      period: "/month*",
+      description: "Our most complete package — developed through real-world experience to give ambitious salons full automation, deep insights, and next-level growth.",
       features: [
-        "Unlimited AI agents",
+        "10 AI agents",
+        "10 integrations",
+        "10 Updates a month", 
         "Unlimited conversations",
-        "Unlimited integrations", 
-        "Dedicated onboarding & SLA",
-        "API + custom integration",
-        "24×7 premium support",
-        "White-label options",
+        "CRM of your choice",
         "Cancel anytime"
       ],
       popular: false,
-      bgColor: "bg-beauty-lavender/10"
+      bgColor: "bg-beauty-lavender/10",
+      icon: "👑"
     }
   ];
 
@@ -99,30 +96,7 @@ const Pricing: React.FC = () => {
 
               <div className="text-center mb-8">
                 <div className="w-16 h-16 bg-beauty-pink rounded-full flex items-center justify-center mx-auto mb-4">
-                  {index === 0 && (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white w-6 h-6">
-                      <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
-                      <path d="M20 3v4"/>
-                      <path d="M22 5h-4"/>
-                      <path d="M4 17v2"/>
-                      <path d="M5 18H3"/>
-                    </svg>
-                  )}
-                  {index === 1 && (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white w-6 h-6">
-                      <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
-                      <path d="M11 3 8 9l4 13 4-13-3-6"/>
-                      <path d="M2 9h20"/>
-                    </svg>
-                  )}
-                  {index === 2 && (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white w-6 h-6">
-                      <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                      <line x1="16" x2="16" y1="2" y2="6"/>
-                      <line x1="8" x2="8" y1="2" y2="6"/>
-                      <line x1="3" x2="21" y1="10" y2="10"/>
-                    </svg>
-                  )}
+                  <span className="text-3xl">{plan.icon}</span>
                 </div>
                 <h3 className="font-montserrat font-bold text-2xl mb-2 text-beauty-purple">
                   {plan.name}
