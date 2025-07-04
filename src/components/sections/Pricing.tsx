@@ -88,7 +88,7 @@ const Pricing: React.FC = () => {
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-beauty-pink text-white px-6 py-2 rounded-full font-montserrat font-bold text-sm">
+                  <span className="bg-beauty-pink text-white px-4 py-2 rounded-full font-montserrat font-bold text-sm whitespace-nowrap">
                     ✨ Most Popular
                   </span>
                 </div>
@@ -131,7 +131,8 @@ const Pricing: React.FC = () => {
                 onClick={() => scrollToSection('contact')}
                 className="w-full py-4 font-montserrat font-bold text-lg transition-all duration-300 bg-beauty-pink hover:bg-beauty-purple text-white"
               >
-                Choose Your Plan
+                <span className="hidden md:inline lg:hidden">Choose Plan</span>
+                <span className="md:hidden lg:inline">Choose Your Plan</span>
               </Button>
             </div>
           ))}
