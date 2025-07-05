@@ -228,11 +228,34 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
         </div>
       )}
       
-      {/* Custom Video Controls */}
+      {/* Custom Video Controls - Reorganized Layout */}
       {showControls && !isMuted && (
         <div className="absolute bottom-4 left-4 right-4">
-          {/* Progress Bar */}
-          <div className="mb-4">
+          {/* Control Buttons - Now Above Progress Bar */}
+          <div className="flex items-center justify-between mb-4">
+            <button
+              onClick={handlePlayPause}
+              className="flex items-center justify-center w-12 h-12 rounded-full bg-beauty-purple/80 hover:bg-beauty-purple backdrop-blur-sm border-2 border-beauty-lavender transition-all duration-300 transform hover:scale-105"
+              aria-label={isPlaying ? 'Pause' : 'Play'}
+            >
+              {isPlaying ? (
+                <Pause className="w-6 h-6 text-beauty-cream" />
+              ) : (
+                <Play className="w-6 h-6 text-beauty-cream ml-0.5" />
+              )}
+            </button>
+            
+            <button
+              onClick={handleFullscreen}
+              className="flex items-center justify-center w-12 h-12 rounded-full bg-beauty-pink/80 hover:bg-beauty-pink backdrop-blur-sm border-2 border-beauty-lavender transition-all duration-300 transform hover:scale-105"
+              aria-label="Fullscreen"
+            >
+              <Maximize className="w-6 h-6 text-beauty-cream" />
+            </button>
+          </div>
+          
+          {/* Progress Bar - Now at Bottom */}
+          <div>
             <div 
               ref={progressRef}
               className="relative h-2 bg-beauty-cream/30 rounded-full cursor-pointer backdrop-blur-sm border border-beauty-lavender/30"
@@ -255,29 +278,6 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, poster, className = "", 
               <span>{formatTime(currentTime)}</span>
               <span>{formatTime(duration)}</span>
             </div>
-          </div>
-          
-          {/* Control Buttons */}
-          <div className="flex items-center justify-between">
-            <button
-              onClick={handlePlayPause}
-              className="flex items-center justify-center w-12 h-12 rounded-full bg-beauty-purple/80 hover:bg-beauty-purple backdrop-blur-sm border-2 border-beauty-lavender transition-all duration-300 transform hover:scale-105"
-              aria-label={isPlaying ? 'Pause' : 'Play'}
-            >
-              {isPlaying ? (
-                <Pause className="w-6 h-6 text-beauty-cream" />
-              ) : (
-                <Play className="w-6 h-6 text-beauty-cream ml-0.5" />
-              )}
-            </button>
-            
-            <button
-              onClick={handleFullscreen}
-              className="flex items-center justify-center w-12 h-12 rounded-full bg-beauty-pink/80 hover:bg-beauty-pink backdrop-blur-sm border-2 border-beauty-lavender transition-all duration-300 transform hover:scale-105"
-              aria-label="Fullscreen"
-            >
-              <Maximize className="w-6 h-6 text-beauty-cream" />
-            </button>
           </div>
         </div>
       )}
