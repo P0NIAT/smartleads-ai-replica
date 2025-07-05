@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Instagram, MessageCircle, Phone, Globe, FileSpreadsheet, Target, Mail, Calendar } from 'lucide-react';
 
@@ -7,7 +6,7 @@ const Integration: React.FC = () => {
     { name: "Instagram", icon: Instagram, bgColor: "bg-gradient-to-br from-purple-500 to-pink-500" },
     { name: "Messenger", icon: MessageCircle, bgColor: "bg-gradient-to-br from-blue-500 to-purple-500" },
     { name: "WhatsApp", icon: Phone, bgColor: "bg-green-500" },
-    { name: "Safari/Web", icon: Globe, bgColor: "bg-gradient-to-br from-red-500 via-yellow-500 to-green-500" },
+    { name: "Website", icon: Globe, bgColor: "bg-gradient-to-br from-red-500 via-yellow-500 to-green-500" },
     { name: "Sheets", icon: FileSpreadsheet, bgColor: "bg-green-600" },
     { name: "HubSpot", icon: Target, bgColor: "bg-orange-500" },
     { name: "Twilio", icon: Mail, bgColor: "bg-red-500" },
