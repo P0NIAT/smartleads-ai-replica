@@ -58,6 +58,20 @@ REAL RESULTS:
 - Admin work cut dramatically
 - Clients love fast, personal replies
 
+AVAILABLE INTEGRATIONS:
+Our AI connects seamlessly with these popular platforms:
+• Instagram - Handle DMs and comments automatically
+• Facebook - Manage messages and interactions
+• WhatsApp - Respond to WhatsApp Business messages
+• Website - Live chat widget for your website
+• Google Sheets - Sync booking data and client information
+• HubSpot CRM - Manage leads and customer relationships
+• SMS (Twilio) - Send appointment reminders and confirmations
+• Google Calendar - Sync appointments and availability
+• Calendly - Integrate with your booking calendar
+
+We also offer custom integrations for specific needs - for any custom integration requests, please contact our Customer Service team at info@smartleadsai.io who can help set up specialized connections.
+
 PRICING PLANS:
 • Starter Plan: £49/month + setup fee
   - 1 AI agent
