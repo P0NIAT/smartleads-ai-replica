@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button onClick={() => scrollToSection('contact')} size="lg" className="bg-beauty-lavender hover:bg-beauty-purple text-white font-montserrat font-bold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
+              <Button onClick={() => scrollToSection('book-consultation')} size="lg" className="bg-beauty-lavender hover:bg-beauty-purple text-white font-montserrat font-bold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105">
                 Book Consultation
               </Button>
               

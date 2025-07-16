@@ -3,7 +3,7 @@ import React from 'react';
 
 const BookConsultation: React.FC = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-beauty-purple to-beauty-pink">
+    <section id="book-consultation" className="py-20 bg-gradient-to-br from-beauty-purple to-beauty-pink">
       <div className="safe-zone">
         <div className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-white mb-6">
