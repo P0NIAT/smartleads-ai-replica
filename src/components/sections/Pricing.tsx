@@ -40,13 +40,14 @@ const Pricing: React.FC = () => {
     },
     {
       name: "Ultimate",
-      price: "£299",
+      price: "£399",
       period: "/month*",
-      description: "Our most complete package — developed through real-world experience to give ambitious salons full automation, deep insights, and next-level growth.",
+      description: "Our all‑in‑one package—built on real‑world experience to deliver automation, insights, and growth for ambitious salons.",
       features: [
-        "10 AI agents",
-        "10 integrations",
-        "10 Updates a month", 
+        "1 AI Voice Assistant",
+        "5 AI Agents",
+        "5 Social Media Assistants",
+        "5 Updates a month", 
         "Unlimited conversations",
         "CRM of your choice",
         "Cancel anytime"
