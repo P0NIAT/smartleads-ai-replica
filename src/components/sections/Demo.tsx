@@ -17,9 +17,9 @@ const Demo: React.FC = () => {
 
         <div className="mb-8">
           <VideoPlayer
-            src="/demo-video.mp4"
-            poster="/demo-thumb.jpg"
+            src="https://kqiueydxpgxcqelzuosu.supabase.co/storage/v1/object/public/videos//Demo.mp4"
             className="mx-auto"
+            autoPlay={true}
           />
         </div>
 
