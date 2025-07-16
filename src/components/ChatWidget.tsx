@@ -185,6 +185,7 @@ const ChatWidget: React.FC = () => {
         
         <Button
           onClick={openChat}
+          data-chat-widget
           className="w-16 h-16 rounded-full bg-white hover:bg-gray-50 shadow-lg transition-all duration-300 transform hover:scale-110 border-2 border-gray-100"
           size="icon"
           style={{ 
