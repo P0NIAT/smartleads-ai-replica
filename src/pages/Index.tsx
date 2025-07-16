@@ -60,9 +60,9 @@ const Index = () => {
       <Benefits />
       <BookConsultation />
       <Demo />
-      <Testimonials />
-      <Pricing />
       <CaseStudies />
+      <Pricing />
+      <Testimonials />
       <Integration />
       <Footer />
       <ChatWidget />
