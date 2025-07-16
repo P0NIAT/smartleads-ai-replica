@@ -5,20 +5,54 @@ import { Button } from '@/components/ui/button';
 const Pricing: React.FC = () => {
   const plans = [
     {
-      name: "Complete Package",
-      price: "£399",
+      name: "Starter",
+      price: "£49",
       period: "/month*",
-      description: "Our all‑in‑one package—built on real‑world experience to deliver automation, insights, and growth for ambitious salons.",
+      description: "Get your first automation up and running – perfect for new or small businesses looking to save time and attract their first clients.",
       features: [
-        "1 Voice Agent",
-        "5 AI Agents",
-        "5 Social Media Assistants",
-        "Unlimited conversations",
-        "CRM of your choice",
+        "1 AI agent",
+        "1 Social Media Assistant",
+        "1 Update a Month",
+        "500 conversations/month",
+        "HubSpot CRM",
+        "Cancel anytime"
+      ],
+      popular: false,
+      bgColor: "bg-white",
+      icon: "💼"
+    },
+    {
+      name: "Premium", 
+      price: "£99",
+      period: "/month*",
+      description: "Unlock powerful tools and smarter workflows designed to help growing beauty businesses boost bookings and stay organized.",
+      features: [
+        "3 AI Agents",
+        "3 Social Media Assistants", 
+        "3 updates a month",
+        "1,500 conversations/month",
+        "HubSpot CRM",
         "Cancel anytime"
       ],
       popular: true,
       bgColor: "bg-beauty-pink/10",
+      icon: "🚀"
+    },
+    {
+      name: "Ultimate",
+      price: "£299",
+      period: "/month*",
+      description: "Our most complete package — developed through real-world experience to give ambitious salons full automation, deep insights, and next-level growth.",
+      features: [
+        "10 AI agents",
+        "10 integrations",
+        "10 Updates a month", 
+        "Unlimited conversations",
+        "CRM of your choice",
+        "Cancel anytime"
+      ],
+      popular: false,
+      bgColor: "bg-beauty-lavender/10",
       icon: "👑"
     }
   ];
