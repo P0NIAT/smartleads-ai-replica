@@ -29,7 +29,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Sending contact form email:", { name, email, phone: phone || 'Not provided' });
 
     const emailResponse = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
+      from: `Smart Leads AI <${Deno.env.get('RESEND_FROM')}>`,
       to: ["info@smartleadsai.io"],
       subject: `New Contact Form Submission from ${name}`,
       html: `
