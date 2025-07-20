@@ -17,17 +17,15 @@ const BookConsultation: React.FC = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Removed overflow-hidden so the card can grow */}
+          {/* Removed overflow-hidden so the container can grow */}
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
             <iframe
               src="https://api.leadconnectorhq.com/widget/booking/WF1FekyzxacOg2J8XN1P"
-              width="100%"
-              // use min-h-[820px] so it never goes shorter, but allow auto height if content grows
-              className="block w-full min-h-[820px] h-auto"
-              frameBorder="0"
-              scrolling="no"
               title="Schedule a Free Consultation"
               id="WF1FekyzxacOg2J8XN1P_1753044897723"
+              className="block w-full h-auto min-h-[820px]"
+              frameBorder="0"
+              scrolling="no"
               style={{
                 border: 'none',
                 margin: 0,
