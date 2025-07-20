@@ -17,13 +17,15 @@ const BookConsultation: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden">
             <iframe
-              src="https://calendly.com/smartleadsai/free-consultation"
+              src="https://api.leadconnectorhq.com/widget/booking/bW6fZuwi1kKZCBYgsv3y"
               width="100%"
               height="900"
               frameBorder="0"
               scrolling="no"
               className="block"
               title="Schedule a Free Consultation"
+              id="nymexOEMubejszKeOytb_1752994144975"
+              style={{ border: 'none', overflow: 'hidden' }}
             ></iframe>
           </div>
           
