@@ -19,13 +19,13 @@ const BookConsultation: React.FC = () => {
             <iframe
               src="https://api.leadconnectorhq.com/widget/booking/WF1FekyzxacOg2J8XN1P"
               width="100%"
-              height="900"
+              height="1200"
               frameBorder="0"
-              scrolling="no"
+              scrolling="yes"
               className="block"
               title="Schedule a Free Consultation"
               id="WF1FekyzxacOg2J8XN1P_1753044897723"
-              style={{ border: 'none', overflow: 'hidden' }}
+              style={{ border: 'none', overflowY: 'auto', minHeight: '1200px' }}
             ></iframe>
           </div>
           
