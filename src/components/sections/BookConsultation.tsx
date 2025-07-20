@@ -19,7 +19,7 @@ const BookConsultation: React.FC = () => {
             <iframe
               src="https://api.leadconnectorhq.com/widget/booking/WF1FekyzxacOg2J8XN1P"
               width="100%"
-              height="900"
+              height="875"
               frameBorder="0"
               scrolling="auto"
               className="block w-full min-h-[600px] md:min-h-[700px] lg:min-h-[850px]"
