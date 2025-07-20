@@ -15,14 +15,14 @@ const BookConsultation: React.FC = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 overflow-auto max-h-[90vh]">
             <iframe
               src="https://api.leadconnectorhq.com/widget/booking/WF1FekyzxacOg2J8XN1P"
               width="100%"
               height="850"
               frameBorder="0"
-              scrolling="no"
-              className="block w-full"
+              scrolling="auto"
+              className="block w-full min-h-[600px] md:min-h-[700px] lg:min-h-[850px]"
               title="Schedule a Free Consultation"
               id="WF1FekyzxacOg2J8XN1P_1753044897723"
               style={{ 
