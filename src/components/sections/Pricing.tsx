@@ -40,7 +40,7 @@ const Pricing: React.FC = () => {
     },
     {
       name: "Ultimate",
-      price: "£399",
+      price: "£299",
       period: "/month*",
       description: "Our all‑in‑one package—built on real‑world experience to deliver automation, insights, and growth for ambitious salons.",
       features: [
